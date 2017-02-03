@@ -50,3 +50,7 @@
 (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                "backups"))))
 (setq auto-save-default nil)
+
+;; Use smartparens keybindings when using it
+(add-hook 'smartparens-strict-mode 'sp-use-smartparens-bindings)
+(add-hook 'smartparens-mode 'sp-use-smartparens-bindings)

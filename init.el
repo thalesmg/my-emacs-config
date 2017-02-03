@@ -9,6 +9,8 @@
 
 ;; Rainbow mode in programming modes
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+;; Diff highlight for VCSs
+(add-hook 'prog-mode-hook 'diff-hl-mode)
 
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
@@ -25,6 +27,7 @@
 ;; Langauage-specific
 (load "setup-clojure.el")
 (load "setup-haskell.el")
+(load "setup-elixir.el")
 
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
