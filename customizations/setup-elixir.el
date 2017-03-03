@@ -1,6 +1,6 @@
 (add-hook 'elixir-mode-hook 'alchemist-mode)
 (add-hook 'elixir-mode-hook 'company-mode)
-(add-hook 'elixir-mode-hook 'smartparens-strict-mode)
+(add-hook 'elixir-mode-hook 'smartparens-mode)
 (eval-after-load 'elixir-mode-hook '(require 'smartparens-elixir))
 
 (require 'smartparens-config)
@@ -14,6 +14,6 @@
          :actions '(insert navigate)))
 
 ;; Run tests on save
-(setq alchemist-hooks-test-on-save t)
+;(setq alchemist-hooks-test-on-save t)
 ;; Run compile on save
-(setq alchemist-hooks-compile-on-save t)
+;(setq alchemist-hooks-compile-on-save t)

@@ -4,6 +4,9 @@
 ;; http://www.emacswiki.org/emacs/HippieExpand
 (global-set-key (kbd "M-/") 'hippie-expand)
 
+;; Para substituir ao colar
+(delete-selection-mode 1)
+
 ;; Lisp-friendly hippie expand
 (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev
@@ -54,3 +57,6 @@
 ;; Use smartparens keybindings when using it
 (add-hook 'smartparens-strict-mode 'sp-use-smartparens-bindings)
 (add-hook 'smartparens-mode 'sp-use-smartparens-bindings)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+

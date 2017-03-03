@@ -88,7 +88,10 @@ This is used for receive-do-end expression."
 (sp-with-modes 'elixir-mode
   (sp-local-pair "do" "end"
                  :when '(("SPC" "RET" "<evil-ret>"))
-                 :skip-match 'sp-elixir-skip-def-p)
+                 ;;:skip-match 'sp-elixir-skip-def-p
+                 :post-handlers '(sp-ruby-def-post-handler)
+                 :actions '(insert navigate)
+                 )
   (sp-local-pair "def" "end"
                  :when '(("SPC" "RET" "<evil-ret>"))
                  :post-handlers '(sp-elixir-do-block-post-handler))

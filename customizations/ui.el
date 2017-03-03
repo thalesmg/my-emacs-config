@@ -5,7 +5,7 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'tomorrow-night-bright t)
+(load-theme 'zenburn t)
 
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
@@ -15,6 +15,10 @@
 
 ;; Show line numbers
 (global-linum-mode)
+
+;; Vertical bars for indentation
+(require 'indent-guide)
+(add-hook 'prog-mode-hook 'indent-guide-mode)
 
 ;; full path in title bar
 (setq-default frame-title-format "%b (%f)")
@@ -45,4 +49,3 @@
 
       ;; Mouse yank commands yank at point instead of at click.
       mouse-yank-at-point t)
-
