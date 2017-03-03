@@ -49,3 +49,6 @@
 
       ;; Mouse yank commands yank at point instead of at click.
       mouse-yank-at-point t)
+
+;; Show column numbers
+(add-hook 'prog-mode-hook 'column-number-mode)
