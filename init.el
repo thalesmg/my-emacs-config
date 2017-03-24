@@ -49,9 +49,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("00de442f1a471c98c62281bdf5000b4311db26832a0d6b6f8ffde8705e027828" default)))
  '(package-selected-packages
    (quote
-    (yaml-mode smex smartparens rainbow-delimiters paredit org-alert magit indent-guide ido-ubiquitous helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider))))
+    (darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit org-alert magit indent-guide ido-ubiquitous helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
+ '(safe-local-variable-values
+   (quote
+    ((ag-ignore-list "priv/static/**" "vendor/**" "node_modules/**")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -5,7 +5,7 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'zenburn t)
+(load-theme 'darktooth t)
 
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
@@ -52,3 +52,6 @@
 
 ;; Show column numbers
 (add-hook 'prog-mode-hook 'column-number-mode)
+
+;; Move between windows
+(windmove-default-keybindings)

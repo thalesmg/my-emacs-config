@@ -5,4 +5,6 @@
  ;; Don't prompt everytime for push destination
  magit-push-always-verify nil)
 
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
 (provide 'setup-magit)

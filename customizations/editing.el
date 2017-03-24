@@ -59,4 +59,3 @@
 (add-hook 'smartparens-mode 'sp-use-smartparens-bindings)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
