@@ -10,7 +10,10 @@
     cider
     smartparens
     alchemist
-    paredit))
+    paredit
+    darktooth-theme
+    indent-guide
+    ))
 
 ;; package loading
 (setq packaged-contents-refreshed-p nil)
