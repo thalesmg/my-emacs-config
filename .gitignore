@@ -7,3 +7,13 @@ recentf
 smex-items
 elpa
 backups/
+%backup%~
+**/*.swp
+eshell
+ido.last~
+init.el~
+network-security.data
+recentf~
+tramp
+**/*~
+

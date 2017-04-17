@@ -31,6 +31,7 @@
 (load "setup-clojure.el")
 (load "setup-haskell.el")
 (load "setup-elixir.el")
+(load "setup-org.el")
 
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
@@ -54,7 +55,7 @@
     ("00de442f1a471c98c62281bdf5000b4311db26832a0d6b6f8ffde8705e027828" default)))
  '(package-selected-packages
    (quote
-    (darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit org-alert magit indent-guide ido-ubiquitous helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
+    (intero darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit org-alert magit indent-guide ido-ubiquitous helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
  '(safe-local-variable-values
    (quote
     ((ag-ignore-list "priv/static/**" "vendor/**" "node_modules/**")))))
