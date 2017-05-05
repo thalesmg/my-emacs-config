@@ -50,12 +50,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#32302F" "#FB4934" "#B8BB26" "#FABD2F" "#83A598" "#D3869B" "#17CCD5" "#EBDBB2"])
  '(custom-safe-themes
    (quote
-    ("00de442f1a471c98c62281bdf5000b4311db26832a0d6b6f8ffde8705e027828" default)))
+    ("1db337246ebc9c083be0d728f8d20913a0f46edc0a00277746ba411c149d7fe5" "00de442f1a471c98c62281bdf5000b4311db26832a0d6b6f8ffde8705e027828" default)))
  '(package-selected-packages
    (quote
-    (company-anaconda anaconda-mode dockerfile-mode groovy-mode intero darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit org-alert magit indent-guide ido-ubiquitous helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
+    (edit-server ample-zen-theme avy company-anaconda anaconda-mode dockerfile-mode groovy-mode intero darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit org-alert magit indent-guide ido-ubiquitous helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
+ '(pos-tip-background-color "#36473A")
+ '(pos-tip-foreground-color "#FFFFC8")
  '(safe-local-variable-values
    (quote
     ((ag-ignore-list "priv/static/**" "vendor/**" "node_modules/**")))))
@@ -65,3 +69,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(require 'edit-server)
+(edit-server-start)
+
+(unless (server-running-p) (server-start))

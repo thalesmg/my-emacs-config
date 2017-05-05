@@ -13,6 +13,9 @@
     paredit
     darktooth-theme
     indent-guide
+    avy
+    ample-zenburn-theme
+    edit-server
     ))
 
 ;; package loading
