@@ -59,3 +59,6 @@
 (add-hook 'smartparens-mode 'sp-use-smartparens-bindings)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Jump with Avy
+(global-set-key (kbd "<C-return>") 'avy-goto-char)

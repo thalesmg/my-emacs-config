@@ -4,6 +4,7 @@
     diff-hl
     smex
     projectile
+    magit
     clojure-mode
     clojure-mode-extra-font-locking
     ac-cider
@@ -14,7 +15,7 @@
     darktooth-theme
     indent-guide
     avy
-    ample-zenburn-theme
+    ample-zen-theme
     edit-server
     ))
 
