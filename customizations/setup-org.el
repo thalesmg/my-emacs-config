@@ -13,3 +13,4 @@
 (require 'org-alert)
 (setq org-alert-interval 300)
 (org-alert-enable)
+(setq alert-default-style 'libnotify)
