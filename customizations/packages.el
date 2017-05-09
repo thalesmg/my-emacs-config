@@ -1,22 +1,24 @@
 (defvar my-packages
-  '(rainbow-delimiters
-    ido-ubiquitous
-    diff-hl
-    smex
-    projectile
-    magit
+  '(
+    ac-cider
+    alchemist
+    ample-zen-theme
+    avy
+    cider
     clojure-mode
     clojure-mode-extra-font-locking
-    ac-cider
-    cider
-    smartparens
-    alchemist
-    paredit
     darktooth-theme
-    indent-guide
-    avy
-    ample-zen-theme
+    diff-hl
     edit-server
+    ido-ubiquitous
+    indent-guide
+    magit
+    org-alert
+    paredit
+    projectile
+    smartparens
+    smex
+rainbow-delimiters
     ))
 
 ;; package loading

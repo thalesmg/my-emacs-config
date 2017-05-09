@@ -13,3 +13,7 @@
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+
+;; Autocompletion and suggestions
+(setq tab-always-indent 'complete)
+(add-to-list 'completion-styles 'initials t)
