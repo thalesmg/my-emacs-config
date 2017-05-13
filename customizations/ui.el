@@ -30,6 +30,10 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
+;; No need for menu bar nor toolbar
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
       x-select-enable-clipboard t
