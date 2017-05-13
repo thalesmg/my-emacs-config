@@ -18,7 +18,8 @@
     projectile
     smartparens
     smex
-rainbow-delimiters
+    rainbow-delimiters
+    ansible
     ))
 
 ;; package loading
