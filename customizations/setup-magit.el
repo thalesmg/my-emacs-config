@@ -9,4 +9,6 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(add-hook 'magit-mode-hook 'diff-hl-mode)
+
 (provide 'setup-magit)
