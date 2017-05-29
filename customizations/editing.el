@@ -60,8 +60,5 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Jump with Avy
-(global-set-key (kbd "<C-return>") 'avy-goto-char)
-
 ;; Electric pair mode everywhere!
 (add-hook 'prog-mode-hook #'electric-pair-mode)
