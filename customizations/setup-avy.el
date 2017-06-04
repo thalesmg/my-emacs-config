@@ -7,4 +7,6 @@
   (forward-char))
 
 ;; Jump with Avy
-(global-set-key (kbd "<C-return>") 'avy-go-past-char)
+;; (global-set-key (kbd "<C-return>") 'avy-go-past-char)
+
+(global-set-key (kbd "<C-return>") 'avy-goto-char)

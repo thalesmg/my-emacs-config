@@ -35,6 +35,7 @@
 
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
+(load "setup-avy.el")
 
 ;; Hard-to-categorize customizations
 (load "misc.el")
