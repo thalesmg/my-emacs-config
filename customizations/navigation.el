@@ -37,3 +37,6 @@
 
 ;; projectile everywhere!
 (projectile-global-mode)
+
+;; to navigate around dirs
+(global-set-key (kbd "C-c C-f") 'helm-find-files)
