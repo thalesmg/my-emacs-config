@@ -56,9 +56,10 @@
  '(custom-safe-themes
    (quote
     ("1db337246ebc9c083be0d728f8d20913a0f46edc0a00277746ba411c149d7fe5" "00de442f1a471c98c62281bdf5000b4311db26832a0d6b6f8ffde8705e027828" default)))
+ '(haskell-process-type (quote stack-ghci))
  '(package-selected-packages
    (quote
-    (ansible edit-server ample-zen-theme avy company-anaconda anaconda-mode dockerfile-mode groovy-mode intero darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit org-alert magit indent-guide ido-ubiquitous helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
+    (helm haskell-mode ansible edit-server ample-zen-theme avy company-anaconda anaconda-mode dockerfile-mode groovy-mode intero darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit org-alert magit indent-guide ido-ubiquitous helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
  '(safe-local-variable-values

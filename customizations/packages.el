@@ -12,6 +12,8 @@
     edit-server
     ido-ubiquitous
     indent-guide
+    helm
+    helm-projectile
     magit
     org-alert
     paredit
