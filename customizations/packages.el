@@ -16,6 +16,7 @@
     helm-projectile
     magit
     org-alert
+    paradox
     paredit
     projectile
     smartparens

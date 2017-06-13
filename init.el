@@ -59,7 +59,7 @@
  '(haskell-process-type (quote stack-ghci))
  '(package-selected-packages
    (quote
-    (helm haskell-mode ansible edit-server ample-zen-theme avy company-anaconda anaconda-mode dockerfile-mode groovy-mode intero darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit org-alert magit indent-guide ido-ubiquitous helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
+    (paradox helm haskell-mode ansible edit-server ample-zen-theme avy company-anaconda anaconda-mode dockerfile-mode groovy-mode intero darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit org-alert magit indent-guide ido-ubiquitous helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
  '(safe-local-variable-values
