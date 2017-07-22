@@ -23,6 +23,7 @@
     smex
     rainbow-delimiters
     ansible
+    projectile-ripgrep
     ))
 
 ;; package loading
