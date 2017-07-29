@@ -28,6 +28,9 @@
 ;; Shows a list of buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; Helm buffer list
+(global-set-key (kbd "C-x b") 'helm-mini)
+
 ;; Enhances M-x to allow easier execution of commands. Provides
 ;; a filterable list of possible commands in the minibuffer
 ;; http://www.emacswiki.org/emacs/Smex
@@ -39,4 +42,4 @@
 (projectile-global-mode)
 
 ;; to navigate around dirs
-(global-set-key (kbd "C-c C-f") 'helm-find-files)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)

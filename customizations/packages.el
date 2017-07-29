@@ -15,7 +15,7 @@
     helm
     helm-projectile
     magit
-    org-alert
+    ;; org-alert
     paradox
     paredit
     projectile
@@ -24,6 +24,7 @@
     rainbow-delimiters
     ansible
     projectile-ripgrep
+    ace-window
     ))
 
 ;; package loading
