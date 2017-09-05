@@ -10,6 +10,11 @@
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
 
+;; Font
+;; (set-default-font "DejaVu Sans Mono:style=Book")
+(set-default-font "Fira Mono:style=Regular")
+(set-fontset-font "fontset-standard" nil "Symbola:style=Regular")
+
 ;; No cursor blinking, it's distracting
 (blink-cursor-mode 0)
 
