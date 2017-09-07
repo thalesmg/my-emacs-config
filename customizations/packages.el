@@ -25,6 +25,7 @@
     ansible
     projectile-ripgrep
     ace-window
+    helm-ag
     ))
 
 ;; package loading
