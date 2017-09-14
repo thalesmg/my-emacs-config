@@ -43,3 +43,7 @@
 
 ;; to navigate around dirs
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+;; navigate between windows
+(require 'ace-window)
+(global-set-key (kbd "C-x o") 'ace-window)
