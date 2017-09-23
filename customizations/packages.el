@@ -26,6 +26,7 @@
     projectile-ripgrep
     ace-window
     helm-ag
+    git-timemachine
     ))
 
 ;; package loading
