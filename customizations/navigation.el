@@ -47,3 +47,10 @@
 ;; navigate between windows
 (require 'ace-window)
 (global-set-key (kbd "C-x o") 'ace-window)
+
+;; copies current buffer file name
+(global-set-key
+ (kbd "C-c C-b")
+ (lambda (&optional args)
+   (interactive)
+   (kill-new (buffer-file-name))))
