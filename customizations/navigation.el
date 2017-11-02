@@ -53,4 +53,5 @@
  (kbd "C-c C-b")
  (lambda (&optional args)
    (interactive)
+   (message (buffer-file-name))
    (kill-new (buffer-file-name))))
