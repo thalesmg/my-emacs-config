@@ -27,6 +27,7 @@
     ace-window
     helm-ag
     git-timemachine
+    switch-window
     ))
 
 ;; package loading
