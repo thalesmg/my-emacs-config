@@ -62,3 +62,6 @@
 
 ;; Electric pair mode everywhere!
 (add-hook 'prog-mode-hook #'electric-pair-mode)
+
+;; truncate long lines (line wrap)
+(global-set-key (kbd "<f6>") 'toggle-truncate-lines)
