@@ -15,4 +15,4 @@
 (eval-after-load 'elm-mode '(tmg--add-nvm-to-path))
 
 (with-eval-after-load 'elm-mode
-  (setq exec-path (append exec-path '("/home/thales/.nvm/versions/node/v8.4.0/bin"))))
+  (setq exec-path (append exec-path '("/home/thales/.nvm/versions/node/v8.6.0/bin"))))
