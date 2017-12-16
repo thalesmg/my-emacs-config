@@ -1,8 +1,11 @@
 (defvar my-packages
   '(
+    ;; org-alert
     ac-cider
+    ace-window
     alchemist
     ample-zen-theme
+    ansible
     avy
     cider
     clojure-mode
@@ -10,23 +13,23 @@
     darktooth-theme
     diff-hl
     edit-server
+    flycheck-rust
+    git-timemachine
+    helm
+    helm-ag
+    helm-projectile
     ido-ubiquitous
     indent-guide
-    helm
-    helm-projectile
     magit
-    ;; org-alert
     paradox
     paredit
     projectile
+    projectile-ripgrep
+    racer
+    rainbow-delimiters
+    rust-mode
     smartparens
     smex
-    rainbow-delimiters
-    ansible
-    projectile-ripgrep
-    ace-window
-    helm-ag
-    git-timemachine
     switch-window
     ))
 
