@@ -36,6 +36,8 @@
 (load "setup-haskell.el")
 (load "setup-elixir.el")
 (load "setup-org.el")
+(load "setup-elm.el")
+(load "setup-rust.el")
 
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
