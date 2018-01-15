@@ -62,5 +62,5 @@
 ;; Show column numbers
 (add-hook 'prog-mode-hook 'column-number-mode)
 
-;; Move between windows
-(windmove-default-keybindings)
+;; Move between windows (S-up, S-right, S-left, S-down)
+;; (windmove-default-keybindings)
