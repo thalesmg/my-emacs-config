@@ -13,6 +13,7 @@
     darktooth-theme
     diff-hl
     edit-server
+    elm-mode
     flycheck-rust
     git-timemachine
     helm
@@ -20,6 +21,7 @@
     helm-projectile
     ido-ubiquitous
     indent-guide
+    intero
     magit
     paradox
     paredit
