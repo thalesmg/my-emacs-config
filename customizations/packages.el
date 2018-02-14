@@ -29,6 +29,7 @@
     projectile-ripgrep
     racer
     rainbow-delimiters
+    rg
     rust-mode
     smartparens
     smex
