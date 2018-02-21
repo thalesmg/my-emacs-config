@@ -53,7 +53,10 @@
 ;; Magit customizations
 (load "setup-magit.el")
 
-(custom-set-variables
+;; Highlight column mode
+(require 'col-highlight)
+
+(Custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
