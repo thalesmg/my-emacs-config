@@ -8,6 +8,7 @@
     ansible
     avy
     cider
+    color-theme-sanityinc-tomorrow
     clojure-mode
     clojure-mode-extra-font-locking
     darktooth-theme
