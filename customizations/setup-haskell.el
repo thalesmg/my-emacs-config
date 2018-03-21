@@ -5,4 +5,10 @@
 (add-hook 'haskell-mode-hook 'intero-mode)
 
 (with-eval-after-load 'intero
-  (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
+  (progn
+    (flycheck-add-next-checker 'intero '(warning . haskell-hlint))
+    (local-set-key (kbd "C-x M-q")
+                   (lambda ()
+                     (interactive)
+                     (basic-save-buffer)
+                     (shell-command (concat "stack exec hfmt -- -w " buffer-file-name))))))
