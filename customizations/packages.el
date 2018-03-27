@@ -35,6 +35,7 @@
     smartparens
     smex
     switch-window
+    use-package
     ))
 
 ;; package loading
