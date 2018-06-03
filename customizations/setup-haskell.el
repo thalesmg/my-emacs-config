@@ -16,7 +16,7 @@
 (use-package intero
   :config
   (flycheck-add-next-checker 'intero '(warning . haskell-hlint))
-  (smartparens-mode)
+  (smartparens-mode t)
   :bind
   ("C-x M-q" . (lambda ()
                  (interactive)
