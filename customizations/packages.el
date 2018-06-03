@@ -24,6 +24,7 @@
     indent-guide
     intero
     magit
+    markdown-mode
     paradox
     paredit
     projectile
