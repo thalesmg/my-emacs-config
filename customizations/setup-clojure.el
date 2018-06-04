@@ -56,6 +56,11 @@
 (add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojurescript-mode))
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
+(defun zprint-this ()
+    (interactive)
+    (basic-save-buffer)
+    (shell-command (concat "lein zprint " buffer-file-name)))
+
 ;; For autocomplete
 (require 'ac-cider)
 (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
@@ -65,6 +70,10 @@
   '(progn
      (add-to-list 'ac-modes 'cider-mode)
      (add-to-list 'ac-modes 'cider-repl-mode)))
+
+(use-package clojure-mode
+  :bind
+  ("C-x M-q" . zprint-this))
 
 ;; Clojurescript CIDER/figwheel
 (require 'cider)
