@@ -17,3 +17,40 @@
 ;(setq alchemist-hooks-test-on-save t)
 ;; Run compile on save
 ;(setq alchemist-hooks-compile-on-save t)
+(require 'elixir-mode)
+(require 'projectile)
+(require 'alchemist)
+
+(defvar xerpa/original-alchemist-goto-callback nil)
+
+(defun xerpa/advice-goto-callback (&rest args)
+  (setq xerpa/original-alchemist-goto-callback alchemist-goto-callback)
+  (setq alchemist-goto-callback
+        (lambda (path)
+          (let ((project-root (projectile-project-root)))
+            (if (and (stringp project-root) (stringp path))
+                (apply xerpa/original-alchemist-goto-callback (list (replace-regexp-in-string "^/mnt/[a-z]+/" project-root path)))
+              (apply xerpa/original-alchemist-goto-callback (list path)))))))
+
+(defun xerpa/project-root (original-alchemist-fn &rest args)
+  (if-let ((project-root (projectile-project-root)))
+      project-root
+    (apply original-alchemist-fn args)))
+
+(defun xerpa/config-alchemist ()
+  (when-let ((project-root (projectile-project-root)))
+    (let ((ext-bin-mix (concat project-root "ext/bin/mix"))
+          (ext-bin-sandbox (concat project-root "ext/bin/sandbox")))
+      (when (file-exists-p ext-bin-mix)
+        (setq alchemist-mix-command ext-bin-mix))
+      (advice-add
+       #'alchemist-project-root
+       :around
+       #'xerpa/project-root)
+      (when (file-exists-p ext-bin-sandbox)
+        (advice-add
+         #'alchemist-server-goto
+         :before
+         #'xerpa/advice-goto-callback)))))
+
+(add-hook 'elixir-mode-hook #'xerpa/config-alchemist)
