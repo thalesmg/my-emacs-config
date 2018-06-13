@@ -37,6 +37,9 @@
     smex
     switch-window
     use-package
+    wgrep
+    wgrep-ag
+    wgrep-helm
     ))
 
 ;; package loading
