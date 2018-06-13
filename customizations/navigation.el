@@ -62,3 +62,8 @@
    (interactive)
    (message (buffer-file-name))
    (kill-new (buffer-file-name))))
+
+;; eshell maroto
+(global-set-key
+ (kbd "C-c C-s")
+ 'eshell)
