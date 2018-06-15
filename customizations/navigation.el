@@ -65,5 +65,5 @@
 
 ;; eshell maroto
 (global-set-key
- (kbd "C-c C-s")
+ (kbd "C-c s")
  'eshell)
