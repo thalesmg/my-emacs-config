@@ -38,6 +38,7 @@
 (load "setup-org.el")
 (load "setup-elm.el")
 (load "setup-rust.el")
+(load "setup-ocaml.el")
 
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
