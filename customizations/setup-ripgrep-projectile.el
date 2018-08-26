@@ -5,6 +5,7 @@
 (require 'rg)
 
 (define-key projectile-mode-map (kbd "C-c p p") 'helm-projectile-switch-project)
+(define-key projectile-mode-map (kbd "C-c p h") 'helm-projectile-find-file)
 ;; (define-key projectile-mode-map (kbd "C-c p s r") 'projectile-ripgrep)
 
 (defun tmg-helm-do-rg
