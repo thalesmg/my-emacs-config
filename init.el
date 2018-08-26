@@ -29,30 +29,24 @@
 ;; These customizations make it easier for you to navigate files,
 ;; switch buffers, and choose options from the minibuffer.
 (load "navigation.el")
-(load "setup-ripgrep-projectile.el")
 
-;; Langauage-specific
-(load "setup-clojure.el")
-(load "setup-haskell.el")
-(load "setup-elixir.el")
-(load "setup-org.el")
-(load "setup-elm.el")
-(load "setup-rust.el")
-(load "setup-ocaml.el")
-
+;; Misc customizations
+(let*
+    ((currdir (file-name-directory (or load-file-name buffer-file-name)))
+     (customization-dir (concat currdir "customizations")))
+  (dolist
+      (f (directory-files-recursively customization-dir "setup-.*\.el"))
+    (let ((f (file-name-nondirectory f)))
+      (when f
+	(load f)))))
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
-(load "setup-smartparens.el")
-(load "setup-avy.el")
 
 ;; Hard-to-categorize customizations
 (load "misc.el")
 
 ;; For editing lisps
 (load "elisp-editing.el")
-
-;; Magit customizations
-(load "setup-magit.el")
 
 ;; Highlight column mode
 (require 'col-highlight)

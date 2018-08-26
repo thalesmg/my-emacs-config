@@ -21,3 +21,4 @@
 (add-to-list 'tramp-default-proxies-alist '("localhost" nil nil))
 (add-to-list 'tramp-default-proxies-alist '("tufe" nil nil))
 (add-to-list 'tramp-default-proxies-alist '("biuru" nil nil))
+(add-to-list 'tramp-default-proxies-alist '("poiseh" nil nil))
