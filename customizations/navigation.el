@@ -31,6 +31,10 @@
 ;; Helm buffer list
 (global-set-key (kbd "C-x b") 'helm-mini)
 
+;; navegar entre buffers
+(global-set-key (kbd "C-,") 'previous-buffer)
+(global-set-key (kbd "C-.") 'next-buffer)
+
 ;; Enhances M-x to allow easier execution of commands. Provides
 ;; a filterable list of possible commands in the minibuffer
 ;; http://www.emacswiki.org/emacs/Smex
