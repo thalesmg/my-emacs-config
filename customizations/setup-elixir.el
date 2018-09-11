@@ -54,3 +54,11 @@
          #'xerpa/advice-goto-callback)))))
 
 (add-hook 'elixir-mode-hook #'xerpa/config-alchemist)
+
+(define-key elixir-mode-map (kbd "C-x M-q")
+  (lambda ()
+    (interactive)
+    (basic-save-buffer)
+    (message projectile-project-root)
+    (let ((curr-file-path (string-remove-prefix (projectile-project-root) buffer-file-name)))
+     (shell-command (concat (projectile-project-root) "ext/bin/env-dev mix format " curr-file-path)))))

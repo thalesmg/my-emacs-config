@@ -18,7 +18,8 @@
   (flycheck-add-next-checker 'intero '(warning . haskell-hlint))
   (smartparens-mode t)
   :bind
-  ("C-x M-q" . (lambda ()
-                 (interactive)
-                 (basic-save-buffer)
-                 (shell-command (concat "stack exec hfmt -- -w " buffer-file-name)))))
+  (:map haskell-mode-map
+   ("C-x M-q" . (lambda ()
+                  (interactive)
+                  (basic-save-buffer)
+                  (shell-command (concat "stack exec hfmt -- -w " buffer-file-name))))))
