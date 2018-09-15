@@ -20,7 +20,6 @@
     helm
     helm-ag
     helm-projectile
-    ido-ubiquitous
     indent-guide
     intero
     magit
