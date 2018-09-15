@@ -8,9 +8,9 @@
     ansible
     avy
     cider
-    color-theme-sanityinc-tomorrow
     clojure-mode
     clojure-mode-extra-font-locking
+    color-theme-sanityinc-tomorrow
     darktooth-theme
     diff-hl
     edit-server
@@ -39,6 +39,7 @@
     wgrep
     wgrep-ag
     wgrep-helm
+    yaml-mode
     ))
 
 ;; package loading

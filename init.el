@@ -64,12 +64,14 @@
    (quote
     ("1db337246ebc9c083be0d728f8d20913a0f46edc0a00277746ba411c149d7fe5" "00de442f1a471c98c62281bdf5000b4311db26832a0d6b6f8ffde8705e027828" default)))
  '(haskell-process-type (quote stack-ghci))
+ '(helm-ag-base-command "rg --no-heading")
  '(package-selected-packages
    (quote
     (idris-mode paradox helm haskell-mode ansible edit-server ample-zen-theme avy company-anaconda anaconda-mode dockerfile-mode groovy-mode intero darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit magit indent-guide helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
  '(paradox-github-token t)
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
+ '(ripgrep-arguments (append ripgrep-arguments (list "--hidden")))
  '(safe-local-variable-values
    (quote
     ((ag-ignore-list "priv/static/**" "vendor/**" "node_modules/**")))))
