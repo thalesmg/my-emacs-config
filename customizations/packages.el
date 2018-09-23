@@ -15,6 +15,7 @@
     diff-hl
     edit-server
     elm-mode
+    exec-path-from-shell
     flycheck-rust
     git-timemachine
     helm

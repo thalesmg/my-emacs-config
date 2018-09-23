@@ -22,3 +22,6 @@
 (add-to-list 'tramp-default-proxies-alist '("tufe" nil nil))
 (add-to-list 'tramp-default-proxies-alist '("biuru" nil nil))
 (add-to-list 'tramp-default-proxies-alist '("poiseh" nil nil))
+
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
