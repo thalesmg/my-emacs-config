@@ -14,6 +14,7 @@
 ;; (setq erc-nick-color-alist '(("John" . "blue")
 ;; 			     ("Bob" . "red")
 ;; 			     ))
+(setq erc-nick-color-alist '())
 
 (defun erc-get-color-for-nick (nick)
   "Gets a color for NICK. If NICK is in erc-nick-color-alist, use that color, else hash the nick and use a random color from the pool"
