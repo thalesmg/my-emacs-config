@@ -28,10 +28,14 @@
   "Modifies the color of nicks according to erc-get-color-for-nick"
   (save-excursion
     (goto-char (point-min))
-    (if (looking-at "<\\([^>]*\\)>")
-	(let ((nick (match-string 1)))
-	  (put-text-property (match-beginning 1) (match-end 1) 'face
-			     (cons 'foreground-color
-				   (erc-get-color-for-nick nick)))))))
+    (while (forward-word 1)
+      (setq bounds (bounds-of-thing-at-point 'word))
+      (setq word (buffer-substring-no-properties
+                  (car bounds) (cdr bounds)))
+      (when (or (and (erc-server-buffer-p) (erc-get-server-user word))
+                (and erc-channel-users (erc-get-channel-user word)))
+        (put-text-property (car bounds) (cdr bounds)
+                           'face (cons 'foreground-color
+                                       (erc-get-color-for-nick word)))))))
 
 (add-hook 'erc-insert-modify-hook 'erc-put-color-on-nick)
