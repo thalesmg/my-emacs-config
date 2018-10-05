@@ -4,6 +4,7 @@
     ac-cider
     ace-window
     alchemist
+    ample-theme
     ample-zen-theme
     ansible
     avy
