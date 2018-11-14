@@ -57,9 +57,10 @@
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
 (defun zprint-this ()
-    (interactive)
-    (basic-save-buffer)
-    (shell-command (concat "lein zprint " buffer-file-name)))
+  (interactive)
+  (basic-save-buffer)
+  (let ((default-directory (projectile-project-root)))
+    (shell-command (concat "zprint-node -i " buffer-file-name " -o " buffer-file-name))))
 
 ;; For autocomplete
 (require 'ac-cider)
