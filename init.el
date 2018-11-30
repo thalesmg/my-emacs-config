@@ -39,6 +39,7 @@
     (let ((f (file-name-nondirectory f)))
       (when f
 	(load f)))))
+(load "opam-user-setup.el")
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
 
