@@ -75,7 +75,8 @@
  '(ripgrep-arguments (append ripgrep-arguments (list "--hidden")))
  '(safe-local-variable-values
    (quote
-    ((ag-ignore-list "priv/static/**" "vendor/**" "node_modules/**")))))
+    ((intero-targets "mureta:lib" "mureta:exe:mureta" "mureta:test:spec")
+     (ag-ignore-list "priv/static/**" "vendor/**" "node_modules/**")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

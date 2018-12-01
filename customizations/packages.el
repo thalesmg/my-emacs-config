@@ -32,6 +32,7 @@
     projectile-ripgrep
     racer
     rainbow-delimiters
+    reason-mode
     rg
     rust-mode
     smartparens
