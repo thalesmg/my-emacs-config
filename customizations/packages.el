@@ -26,6 +26,7 @@
     intero
     magit
     markdown-mode
+    merlin
     paradox
     paredit
     projectile
