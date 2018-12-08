@@ -22,6 +22,7 @@
     helm
     helm-ag
     helm-projectile
+    idris-mode
     indent-guide
     intero
     magit
