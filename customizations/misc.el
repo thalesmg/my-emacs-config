@@ -25,3 +25,6 @@
 
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
+
+;; prevent Emacs from freezing with C-z...
+(global-unset-key (kbd "C-z"))

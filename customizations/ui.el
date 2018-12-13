@@ -64,3 +64,6 @@
 
 ;; Move between windows (S-up, S-right, S-left, S-down)
 ;; (windmove-default-keybindings)
+
+;; open helm window in the opposite buffer
+(setq helm-split-window-default-side 'other)
