@@ -61,4 +61,5 @@
     (basic-save-buffer)
     (message projectile-project-root)
     (let ((curr-file-path (string-remove-prefix (projectile-project-root) buffer-file-name)))
-     (shell-command (concat (projectile-project-root) "ext/bin/env mix format " curr-file-path)))))
+      (shell-command (concat (projectile-project-root) "ext/bin/env mix format " curr-file-path))
+      (revert-buffer nil t))))
