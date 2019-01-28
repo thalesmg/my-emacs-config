@@ -6,3 +6,13 @@
 (add-hook 'rust-mode-hook 'flycheck-mode)
 (add-hook 'rust-mode-hook #'flycheck-rust-setup)
 (add-hook 'rust-mode-hook 'company-mode)
+
+(define-key rust-mode-map (kbd "C-x M-q")
+  (lambda ()
+    (interactive)
+    (basic-save-buffer)
+    (message projectile-project-root)
+    (let ((curr-file-path (string-remove-prefix (projectile-project-root) buffer-file-name)))
+      (cd (projectile-project-root))
+      (shell-command "cargo fmt")
+      (revert-buffer nil t))))
