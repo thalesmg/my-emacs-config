@@ -37,6 +37,7 @@
     reason-mode
     rg
     rust-mode
+    slime
     smartparens
     smex
     switch-window
