@@ -14,6 +14,7 @@
     color-theme-sanityinc-tomorrow
     darktooth-theme
     diff-hl
+    docker-tramp
     edit-server
     elm-mode
     exec-path-from-shell
