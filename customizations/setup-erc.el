@@ -2,6 +2,7 @@
 
 (setq erc-hide-list '("JOIN" "PART" "QUIT" "AWAY"))
 (setq erc-track-exclude-types '("MODE" "AWAY"))
+(setq erc-join-buffer 'bury)
 
 ;; https://www.emacswiki.org/emacs/ErcNickColors#toc5
 
