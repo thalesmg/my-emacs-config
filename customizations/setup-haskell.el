@@ -22,4 +22,5 @@
    ("C-x M-q" . (lambda ()
                   (interactive)
                   (basic-save-buffer)
-                  (shell-command (concat "stack exec hfmt -- -w " buffer-file-name))))))
+                  (shell-command (concat "stack exec stylish-haskell -- -i " buffer-file-name))
+                  (revert-buffer nil t)))))
