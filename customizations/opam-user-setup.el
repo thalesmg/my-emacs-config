@@ -118,5 +118,11 @@
     (when (member (car tool) opam-tools-installed)
      (funcall (symbol-function (cdr tool))))))
 
-(opam-auto-tools-setup)
+(defvar tmg-opam-initialized nil)
+
+(defun tmg-opam-setup ()
+  (if (not tmg-opam-initialized)
+      (opam-auto-tools-setup)))
+
+(add-hook 'caml-mode-hook 'tmg-opam-setup)
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
