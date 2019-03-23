@@ -17,6 +17,7 @@
     docker-tramp
     edit-server
     elm-mode
+    elpy
     exec-path-from-shell
     flycheck-rust
     git-timemachine
