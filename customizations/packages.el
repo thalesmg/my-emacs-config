@@ -19,6 +19,7 @@
     elm-mode
     elpy
     exec-path-from-shell
+    flycheck-joker
     flycheck-rust
     git-timemachine
     helm
