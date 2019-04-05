@@ -10,3 +10,4 @@
 ;; (global-set-key (kbd "<C-return>") 'avy-go-past-char)
 
 (global-set-key (kbd "<C-return>") 'avy-goto-char)
+(global-set-key (kbd "<M-return>") 'avy-goto-line)
