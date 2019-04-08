@@ -64,7 +64,8 @@
   (interactive)
   (basic-save-buffer)
   (let ((default-directory (projectile-project-root)))
-    (shell-command (concat "zprint-node -i " buffer-file-name " -o " buffer-file-name))))
+    (shell-command (concat "zprint " buffer-file-name))
+    (revert-buffer nil t)))
 
 ;; For autocomplete
 (require 'ac-cider)
