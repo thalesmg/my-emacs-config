@@ -87,3 +87,17 @@
       "(do (require 'figwheel-sidecar.repl-api)
            (figwheel-sidecar.repl-api/start-figwheel!)
            (figwheel-sidecar.repl-api/cljs-repl))")
+
+
+;; LSP - ainda esta' muito bugado...
+
+;; (require 'lsp-mode)
+;; (lsp-register-client
+;;  (make-lsp-client :new-connection (lsp-stdio-connection '("bash" "-c" "clojure-lsp"))
+;;                   :major-modes '(clojure-mode clojurec-mode clojurescript-mode)
+;;                   :server-id 'clojure-lsp))
+;; (add-to-list 'lsp-language-id-configuration '(clojure-mode . "clojure-mode"))
+;; (setq lsp-enable-indentation nil)
+;; (add-hook 'clojure-mode-hook #'lsp)
+;; (add-hook 'clojurec-mode-hook #'lsp)
+;; (add-hook 'clojurescript-mode-hook #'lsp)

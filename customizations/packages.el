@@ -28,6 +28,7 @@
     idris-mode
     indent-guide
     intero
+    lsp-mode
     magit
     markdown-mode
     merlin
