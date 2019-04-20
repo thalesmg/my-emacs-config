@@ -1,5 +1,3 @@
-(require 'agda2-mode)
-
 (custom-set-faces
  '(agda2-highlight-datatype-face ((t (:foreground "light blue"))))
  '(agda2-highlight-function-face ((t (:foreground "light blue"))))
