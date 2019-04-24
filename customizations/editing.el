@@ -59,6 +59,12 @@
 (add-hook 'smartparens-mode 'sp-use-smartparens-bindings)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(defun tmg-toggle-delete-trailing-whitespace ()
+  (interactive)
+  (if (member 'delete-trailing-whitespace before-save-hook)
+      (remove-hook 'before-save-hook 'delete-trailing-whitespace)
+    (add-hook 'before-save-hook 'delete-trailing-whitespace)))
+(global-set-key (kbd "<f12>") 'tmg-toggle-delete-trailing-whitespace)
 
 ;; Electric pair mode everywhere!
 (add-hook 'prog-mode-hook #'electric-pair-mode)
