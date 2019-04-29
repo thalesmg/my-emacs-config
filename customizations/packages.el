@@ -32,6 +32,7 @@
     magit
     markdown-mode
     merlin
+    org-journal
     paradox
     paredit
     projectile
