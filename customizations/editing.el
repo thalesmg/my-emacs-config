@@ -59,6 +59,8 @@
 (add-hook 'smartparens-mode 'sp-use-smartparens-bindings)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq require-final-newline t)
+
 (defun tmg-toggle-delete-trailing-whitespace ()
   (interactive)
   (if (member 'delete-trailing-whitespace before-save-hook)
