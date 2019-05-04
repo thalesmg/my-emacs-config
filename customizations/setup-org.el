@@ -15,7 +15,8 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
 
-(setq org-journal-date-format "%a, %d/%m/%Y")
+(customize-set-variable 'org-journal-date-format "%a, %d/%m/%Y")
+(customize-set-variable 'org-journal-dir "~/org/journal")
 
 ;; (require 'org-alert)
 ;; (setq org-alert-interval 300)
