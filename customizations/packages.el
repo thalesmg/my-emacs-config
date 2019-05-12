@@ -20,6 +20,7 @@
     elpy
     exec-path-from-shell
     flycheck-joker
+    flycheck-purescript
     flycheck-rust
     git-timemachine
     helm
@@ -37,6 +38,8 @@
     paredit
     projectile
     projectile-ripgrep
+    psc-ide
+    purescript-mode
     racer
     rainbow-delimiters
     reason-mode
