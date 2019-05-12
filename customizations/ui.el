@@ -12,7 +12,8 @@
 
 ;; Font
 ;; (set-default-font "DejaVu Sans Mono:style=Book")
-(set-default-font "Fira Mono-11:style=Regular")
+;; (set-default-font "Fira Mono-11:style=Regular")
+(set-default-font "Source Code Pro-11:style=Regular")
 (set-fontset-font "fontset-standard" nil "Symbola:style=Regular")
 
 ;; No cursor blinking, it's distracting
