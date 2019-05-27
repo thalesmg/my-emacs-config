@@ -2,6 +2,7 @@
 ;; Clojure
 ;;;;
 
+(require 'clojure-mode)
 (require 'flycheck)
 (require 'flycheck-joker)
 
@@ -10,6 +11,14 @@
 (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'flycheck-mode)
+
+;; para quando o magit ediff caga com parenteses desbalanceados
+(defun tmg-toggle-paredit-clojure-hook ()
+  (interactive)
+  (if (member 'enable-paredit-mode clojure-mode-hook)
+      (remove-hook 'clojure-mode-hook 'enable-paredit-mode)
+    (add-hook 'clojure-mode-hook 'enable-paredit-mode)))
+(define-key clojure-mode-map (kbd "<f8>") 'tmg-toggle-paredit-clojure-hook)
 
 ;; This is useful for working with camel-case tokens, like names of
 ;; Java classes (e.g. JavaClassName)
@@ -88,6 +97,10 @@
            (figwheel-sidecar.repl-api/start-figwheel!)
            (figwheel-sidecar.repl-api/cljs-repl))")
 
+
+;; não mexer com os espaços em branco ao salvar
+;; (add-hook 'clojure-mode-hook (lambda ()
+;;                                (remove-hook 'before-save-hook 'delete-trailing-whitespace)))
 
 ;; LSP - ainda esta' muito bugado...
 
