@@ -5,7 +5,18 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'sanityinc-tomorrow-bright t)
+
+(defun disable-all-themes ()
+  "disables all themes"
+  (dolist (x custom-enabled-themes)
+    (disable-theme x)))
+
+;; (defadvice load-theme (before disable-themes-first activate)
+;;   (disable-all-themes))
+
+;; (progn (disable-all-themes) (load-theme 'deeper-blue) (set-default-font "Source Code Pro-7:style=Regular"))
+;; (load-theme 'sanityinc-tomorrow-bright t)
+(load-theme 'deeper-blue t)
 
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
@@ -13,7 +24,9 @@
 ;; Font
 ;; (set-default-font "DejaVu Sans Mono:style=Book")
 ;; (set-default-font "Fira Mono-11:style=Regular")
-(set-default-font "Source Code Pro-11:style=Regular")
+;; (set-default-font "Iosevka SS09-7:style=Regular")
+;; (set-default-font "Hasklig-7:style=Regular")
+(set-default-font "Source Code Pro-7:style=Regular")
 (set-fontset-font "fontset-standard" nil "Symbola:style=Regular")
 
 ;; No cursor blinking, it's distracting

@@ -49,6 +49,16 @@
 ;; For editing lisps
 (load "elisp-editing.el")
 
+;; customização de temas
+(let*
+    ((currdir (file-name-directory (or load-file-name buffer-file-name)))
+     (customization-dir (concat (file-name-as-directory currdir) "customizations/ui")))
+  (dolist
+      (f (directory-files-recursively customization-dir ".*\.el"))
+    (let ((f (file-name-nondirectory f)))
+      (when f
+	(load f)))))
+
 ;; Highlight column mode
 (require 'col-highlight)
 
