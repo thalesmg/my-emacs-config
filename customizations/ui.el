@@ -18,6 +18,11 @@
 ;; (load-theme 'sanityinc-tomorrow-bright t)
 (load-theme 'deeper-blue t)
 
+(defun disable-all-themes ()
+  "desliga os temas para poder experimentar outros temas"
+  (dolist (x custom-enabled-themes)
+    (disable-theme x)))
+
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
 
