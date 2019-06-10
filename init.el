@@ -57,7 +57,7 @@
       (f (directory-files-recursively customization-dir ".*\.el"))
     (let ((f (file-name-nondirectory f)))
       (when f
-	(load f)))))
+	(load (concat customization-dir "/" f))))))
 
 ;; Highlight column mode
 (require 'col-highlight)
