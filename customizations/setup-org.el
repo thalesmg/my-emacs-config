@@ -46,3 +46,13 @@ of change will be 23:59 on that day"
       (customize-set-variable 'org-journal-dir "~/zen/org/")
       (call-interactively 'org-journal-new-entry nil [prefix time]))
     (customize-set-variable 'org-journal-dir old-org-journal-dir)))
+
+(defun tmg-org-begin-src ()
+  ""
+  (interactive)
+  (insert "#+BEGIN_SRC\n")
+  (set-mark (point))
+  (insert "\n#+END_SRC\n")
+  (goto-char (mark))
+  (pop-mark))
+(define-key org-mode-map (kbd "C-c t s") 'tmg-org-begin-src)
