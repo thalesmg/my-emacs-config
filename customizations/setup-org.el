@@ -36,3 +36,13 @@ of change will be 23:59 on that day"
 ;; (setq org-alert-interval 300)
 ;; (org-alert-enable)
 ;; (setq alert-default-style 'libnotify)
+
+(defun tmg-org-journal-new-entry-zen (prefix &optional time)
+  ""
+  (interactive "P")
+  (require 'org-journal)
+  (let ((old-org-journal-dir org-journal-dir))
+    (ignore-errors
+      (customize-set-variable 'org-journal-dir "~/zen/org/")
+      (call-interactively 'org-journal-new-entry nil [prefix time]))
+    (customize-set-variable 'org-journal-dir old-org-journal-dir)))
