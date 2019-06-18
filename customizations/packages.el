@@ -26,6 +26,7 @@
     helm
     helm-ag
     helm-projectile
+    htmlize
     idris-mode
     indent-guide
     intero
@@ -34,6 +35,7 @@
     markdown-mode
     merlin
     org-journal
+    ox-reveal
     paradox
     paredit
     projectile
