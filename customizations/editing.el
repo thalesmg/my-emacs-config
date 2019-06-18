@@ -64,8 +64,12 @@
 (defun tmg-toggle-delete-trailing-whitespace ()
   (interactive)
   (if (member 'delete-trailing-whitespace before-save-hook)
-      (remove-hook 'before-save-hook 'delete-trailing-whitespace)
-    (add-hook 'before-save-hook 'delete-trailing-whitespace)))
+      (progn
+        (remove-hook 'before-save-hook 'delete-trailing-whitespace)
+        (message "delete-trailing-whitespace is off"))
+    (progn
+      (add-hook 'before-save-hook 'delete-trailing-whitespace)
+      (message "delete-trailing-whitespace is on"))))
 (global-set-key (kbd "<f12>") 'tmg-toggle-delete-trailing-whitespace)
 
 ;; Electric pair mode everywhere!
