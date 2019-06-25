@@ -61,14 +61,20 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq require-final-newline t)
 
+;; Para testar que o modo está habilitado:
+;; (bound-and-true-p electric-indent-mode)
+;; ou
+;; (and (boundp 'electric-indent-mode) electric-indent-mode)
 (defun tmg-toggle-delete-trailing-whitespace ()
   (interactive)
   (if (member 'delete-trailing-whitespace before-save-hook)
       (progn
         (remove-hook 'before-save-hook 'delete-trailing-whitespace)
+        (electric-indent-mode -1)
         (message "delete-trailing-whitespace is off"))
     (progn
       (add-hook 'before-save-hook 'delete-trailing-whitespace)
+      (electric-indent-mode 1)
       (message "delete-trailing-whitespace is on"))))
 (global-set-key (kbd "<f12>") 'tmg-toggle-delete-trailing-whitespace)
 
