@@ -5,6 +5,8 @@
           (lambda ()
             (add-hook 'auto-save-hook 'org-save-all-org-buffers nil t)
             (auto-save-mode)))
+;; para o org-agenda respeitar o .dir-locals.el, se houver
+(add-hook 'org-agenda-mode-hook #'hack-dir-local-variables-non-file-buffer)
 
 (add-hook 'org-mode-hook
           (lambda ()
@@ -16,6 +18,7 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 
 (customize-set-variable 'org-journal-date-format "%a, %d/%m/%Y")
+(customize-set-variable 'org-journal-file-format "%Y%m%d.org")
 (customize-set-variable 'org-journal-dir "~/org/journal")
 
 ;; https://stackoverflow.com/a/28130043
