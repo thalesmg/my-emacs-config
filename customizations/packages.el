@@ -12,6 +12,8 @@
     clojure-mode
     clojure-mode-extra-font-locking
     color-theme-sanityinc-tomorrow
+    counsel
+    counsel-projectile
     darktooth-theme
     diff-hl
     docker-tramp
@@ -30,6 +32,7 @@
     idris-mode
     indent-guide
     intero
+    ivy
     lsp-mode
     magit
     markdown-mode

@@ -83,3 +83,6 @@
 
 ;; truncate long lines (line wrap)
 (global-set-key (kbd "<f6>") 'toggle-truncate-lines)
+
+;; ivy + counsel para ter amostra do caractere
+(global-set-key (kbd "C-x 8 RET") 'counsel-unicode-char)
