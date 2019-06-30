@@ -85,7 +85,9 @@
 (global-set-key (kbd "<f6>") 'toggle-truncate-lines)
 
 ;; ivy + counsel para ter amostra do caractere
-(global-set-key (kbd "C-x 8 RET") 'counsel-unicode-char)
+;; (global-set-key (kbd "C-x 8 RET") 'counsel-unicode-char)
+;; helm-unicode para ter amostra do caractere
+(global-set-key (kbd "C-x 8 RET") 'helm-unicode)
 
 ;; expand region
 (global-set-key (kbd "C-=") 'er/expand-region)

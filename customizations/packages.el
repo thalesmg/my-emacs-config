@@ -29,6 +29,7 @@
     helm
     helm-ag
     helm-projectile
+    helm-unicode
     htmlize
     idris-mode
     indent-guide
