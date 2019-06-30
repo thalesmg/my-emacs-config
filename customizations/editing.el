@@ -86,3 +86,6 @@
 
 ;; ivy + counsel para ter amostra do caractere
 (global-set-key (kbd "C-x 8 RET") 'counsel-unicode-char)
+
+;; expand region
+(global-set-key (kbd "C-=") 'er/expand-region)

@@ -21,6 +21,7 @@
     elm-mode
     elpy
     exec-path-from-shell
+    expand-region
     flycheck-joker
     flycheck-purescript
     flycheck-rust
