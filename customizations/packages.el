@@ -25,6 +25,7 @@
     flycheck-joker
     flycheck-purescript
     flycheck-rust
+    forge
     git-timemachine
     helm
     helm-ag
