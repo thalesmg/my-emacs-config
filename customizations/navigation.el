@@ -64,6 +64,7 @@
    (kill-new (buffer-file-name))))
 
 ;; eshell maroto
-(global-set-key
- (kbd "C-c s")
- 'eshell)
+(global-set-key (kbd "C-c s") 'eshell)
+
+;; refresh buffer
+(global-set-key (kbd "<f5>") 'revert-buffer)
