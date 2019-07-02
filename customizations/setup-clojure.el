@@ -16,8 +16,12 @@
 (defun tmg-toggle-paredit-clojure-hook ()
   (interactive)
   (if (member 'enable-paredit-mode clojure-mode-hook)
-      (remove-hook 'clojure-mode-hook 'enable-paredit-mode)
-    (add-hook 'clojure-mode-hook 'enable-paredit-mode)))
+      (progn
+        (remove-hook 'clojure-mode-hook 'enable-paredit-mode)
+        (message "paredit-mode hook removed from clojure-mode-hook"))
+    (progn
+      (add-hook 'clojure-mode-hook 'enable-paredit-mode)
+      (message "paredit-mode hook added to clojure-mode-hook"))))
 (define-key clojure-mode-map (kbd "<f8>") 'tmg-toggle-paredit-clojure-hook)
 
 ;; This is useful for working with camel-case tokens, like names of
