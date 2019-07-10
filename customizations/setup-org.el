@@ -40,7 +40,7 @@ of change will be 23:59 on that day"
 ;; (org-alert-enable)
 ;; (setq alert-default-style 'libnotify)
 
-(defun tmg-org-journal-new-entry-zen (prefix &optional time)
+(defun tmg/org-journal-new-entry-zenfinance (prefix &optional time)
   ""
   (interactive "P")
   (require 'org-journal)
