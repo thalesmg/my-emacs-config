@@ -29,6 +29,7 @@
     git-timemachine
     helm
     helm-ag
+    helm-org-rifle
     helm-projectile
     helm-unicode
     htmlize
