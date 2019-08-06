@@ -77,7 +77,8 @@
   (interactive)
   (basic-save-buffer)
   (let ((default-directory (projectile-project-root)))
-    (shell-command (concat "zprint " buffer-file-name))
+    ;; (shell-command (concat "zprint " buffer-file-name))
+    (shell-command (concat "lein cljfmt fix " buffer-file-name))
     (revert-buffer nil t)))
 
 ;; For autocomplete
