@@ -22,7 +22,7 @@
     elpy
     exec-path-from-shell
     expand-region
-    flycheck-joker
+    flycheck-clj-kondo
     flycheck-purescript
     flycheck-rust
     forge
