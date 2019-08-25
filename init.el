@@ -1,6 +1,7 @@
 (require 'package)
 ;; (add-to-list 'package-archives
 ;;              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (add-to-list 'package-archives
              '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
