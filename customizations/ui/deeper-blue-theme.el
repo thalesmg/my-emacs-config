@@ -6,4 +6,5 @@
   '(font-lock-constant-face ((t (:foreground "orange1"))))
   '(font-lock-type-face ((t (:foreground "gold"))))
   '(org-code ((t (:foreground "green yellow"))))
-  '(ediff-even-diff-A ((t (:background "maroon")))))
+  '(ediff-even-diff-A ((t (:background "maroon"))))
+  '(ediff-odd-diff-B ((t (:background "maroon")))))
