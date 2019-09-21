@@ -31,6 +31,7 @@
     helm-ag
     helm-org-rifle
     helm-projectile
+    helm-swoop
     helm-unicode
     htmlize
     idris-mode
