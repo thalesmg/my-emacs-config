@@ -15,6 +15,7 @@
     counsel
     counsel-projectile
     darktooth-theme
+    dante
     diff-hl
     docker-tramp
     edit-server
@@ -42,6 +43,7 @@
     magit
     markdown-mode
     merlin
+    nix-haskell-mode
     org-journal
     ox-reveal
     paradox
