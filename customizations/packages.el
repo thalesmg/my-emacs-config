@@ -65,6 +65,7 @@
     wgrep
     wgrep-ag
     wgrep-helm
+    winum
     yaml-mode
     ))
 

@@ -68,3 +68,16 @@
 
 ;; refresh buffer
 (global-set-key (kbd "<f5>") 'revert-buffer)
+
+;; winum - trocar de janela com M-N, N = 0, 1, 2, ...
+(require 'winum)
+
+(define-key winum-keymap (kbd "M-1") 'winum-select-window-1)
+(define-key winum-keymap (kbd "M-2") 'winum-select-window-2)
+(define-key winum-keymap (kbd "M-3") 'winum-select-window-3)
+(define-key winum-keymap (kbd "M-4") 'winum-select-window-4)
+(define-key winum-keymap (kbd "M-5") 'winum-select-window-5)
+(define-key winum-keymap (kbd "M-6") 'winum-select-window-6)
+(define-key winum-keymap (kbd "M-7") 'winum-select-window-7)
+(define-key winum-keymap (kbd "M-8") 'winum-select-window-8)
+(define-key winum-keymap (kbd "M-9") 'winum-select-window-9)
