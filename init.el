@@ -34,12 +34,14 @@
 ;; Misc customizations
 (let*
     ((currdir (file-name-directory (or load-file-name buffer-file-name)))
-     (customization-dir (concat currdir "customizations")))
+     (customization-dir (concat currdir "customizations"))
+     (blacklist '("setup-haskell-nix.el")))
   (dolist
       (f (directory-files-recursively customization-dir "setup-.*\.el"))
     (let ((f (file-name-nondirectory f)))
-      (when f
+      (when (and f (not (member f blacklist)))
 	(load f)))))
+
 (load "opam-user-setup.el")
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
