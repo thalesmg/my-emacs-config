@@ -39,7 +39,9 @@
     indent-guide
     intero
     ivy
+    lsp-haskell
     lsp-mode
+    lsp-ui
     magit
     markdown-mode
     merlin
