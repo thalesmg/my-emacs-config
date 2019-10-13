@@ -11,6 +11,9 @@
 
 (require 'lsp)
 (require 'lsp-haskell)
+(require 'lsp-ui)
 
 (remove-hook 'haskell-mode-hook 'intero-mode)
+
+(add-hook 'haskell-mode-hook 'flycheck-mode)
 (add-hook 'haskell-mode-hook #'lsp)
