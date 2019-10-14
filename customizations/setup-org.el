@@ -46,7 +46,7 @@ of change will be 23:59 on that day"
   (require 'org-journal)
   (let ((old-org-journal-dir org-journal-dir))
     (ignore-errors
-      (customize-set-variable 'org-journal-dir "~/xerpa/org/")
+      (customize-set-variable 'org-journal-dir "~/dev/org-xerpa/")
       (call-interactively 'org-journal-new-entry nil [prefix time]))
     (customize-set-variable 'org-journal-dir old-org-journal-dir)))
 
