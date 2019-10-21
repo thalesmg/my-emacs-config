@@ -15,7 +15,6 @@
     counsel
     counsel-projectile
     darktooth-theme
-    dante
     diff-hl
     docker-tramp
     edit-server
@@ -39,6 +38,7 @@
     indent-guide
     intero
     ivy
+    json-mode
     lsp-haskell
     lsp-mode
     lsp-ui
