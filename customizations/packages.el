@@ -57,6 +57,7 @@
     racer
     rainbow-delimiters
     reason-mode
+    restclient
     rg
     rust-mode
     slime
