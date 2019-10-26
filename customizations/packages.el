@@ -46,6 +46,7 @@
     markdown-mode
     merlin
     nix-haskell-mode
+    nix-mode
     org-journal
     ox-reveal
     paradox
