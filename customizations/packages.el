@@ -7,6 +7,7 @@
     ample-theme
     ample-zen-theme
     ansible
+    auth-source-pass
     avy
     cider
     clojure-mode
@@ -51,6 +52,7 @@
     ox-reveal
     paradox
     paredit
+    password-store
     projectile
     projectile-ripgrep
     psc-ide
