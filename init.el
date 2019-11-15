@@ -35,7 +35,7 @@
 (let*
     ((currdir (file-name-directory (or load-file-name buffer-file-name)))
      (customization-dir (concat currdir "customizations"))
-     (blacklist '("setup-haskell-nix.el")))
+     (blacklist '("setup-haskell.el")))
   (dolist
       (f (directory-files-recursively customization-dir "setup-.*\.el"))
     (let ((f (file-name-nondirectory f)))
