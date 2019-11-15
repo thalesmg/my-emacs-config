@@ -13,6 +13,7 @@
     clojure-mode
     clojure-mode-extra-font-locking
     color-theme-sanityinc-tomorrow
+    company-terraform
     counsel
     counsel-projectile
     darktooth-theme
@@ -21,6 +22,7 @@
     edit-server
     elm-mode
     elpy
+    erlang
     exec-path-from-shell
     expand-region
     flycheck-clj-kondo
@@ -67,6 +69,8 @@
     smartparens
     smex
     switch-window
+    terraform-doc
+    terraform-mode
     use-package
     wgrep
     wgrep-ag
