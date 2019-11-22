@@ -39,7 +39,6 @@
     htmlize
     idris-mode
     indent-guide
-    intero
     ivy
     json-mode
     lsp-haskell
@@ -50,6 +49,8 @@
     merlin
     nix-haskell-mode
     nix-mode
+    nix-sandbox
+    nixos-options
     org-journal
     ox-reveal
     paradox
