@@ -49,7 +49,7 @@
     merlin
     nix-haskell-mode
     nix-mode
-    nix-sandbox
+    ;; nix-sandbox
     nixos-options
     org-journal
     ox-reveal
@@ -60,6 +60,7 @@
     projectile-ripgrep
     psc-ide
     purescript-mode
+    quelpa
     racer
     rainbow-delimiters
     reason-mode
@@ -91,5 +92,11 @@
 		(package-refresh-contents)
 		(setq packaged-contents-refreshed-p t)
 		(package-install p))))))
+
+;; custom packages
+(require 'quelpa)
+
+(quelpa
+ '(nix-sandbox :fetcher git :url "https://github.com/thalesmg/nix-emacs.git"))
 
 (provide 'packages)
