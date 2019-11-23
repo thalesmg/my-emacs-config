@@ -15,6 +15,8 @@
 
 (remove-hook 'haskell-mode-hook 'intero-mode)
 
+(setq lsp-prefer-flymake nil)
+
 (add-hook 'haskell-mode-hook 'flycheck-mode)
 (add-hook 'haskell-mode-hook #'lsp)
 
@@ -25,12 +27,10 @@
                                           (append (list "nix-shell" "-I" "." "--command")
                                                   (list (mapconcat 'identity args " ")))
                                           (list (nix-current-sandbox))))))
-              (setq-local lsp-haskell-process-wrapper-function default-nix-wrapper))))
-
-(add-hook 'haskell-mode-hook
-          (lambda ()
-            (setq-local haskell-process-wrapper-function
-                        (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))))
+              (setq-local lsp-haskell-process-wrapper-function default-nix-wrapper)
+              (setq-local haskell-process-wrapper-function
+                          (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
+              )))
 
 (add-hook 'flycheck-mode-hook
           (lambda ()
