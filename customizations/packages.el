@@ -97,6 +97,6 @@
 (require 'quelpa)
 
 (quelpa
- '(nix-sandbox :fetcher git :url "https://github.com/thalesmg/nix-emacs.git"))
+ '(nix-sandbox :fetcher github :repo "thalesmg/nix-emacs" :branch "fix-nix-shell-name-collision"))
 
 (provide 'packages)
