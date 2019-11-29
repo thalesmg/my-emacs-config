@@ -96,6 +96,8 @@
 ;; custom packages
 (require 'quelpa)
 
+(setq quelpa-update-melpa-p nil)
+
 (quelpa
  '(nix-sandbox :fetcher github :repo "thalesmg/nix-emacs" :branch "fix-nix-shell-name-collision"))
 
