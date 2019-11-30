@@ -23,10 +23,12 @@
 (add-hook 'haskell-mode-hook
           (lambda ()
             (let ((default-nix-wrapper (lambda (args)
-                                         (append
-                                          (append (list "nix-shell" "-I" "." "--command")
-                                                  (list (mapconcat 'identity args " ")))
-                                          (list (nix-current-sandbox))))))
+                                         (if (nix-current-sandbox)
+                                             (append
+                                              (append (list "nix-shell" "-I" "." "--command")
+                                                      (list (mapconcat 'identity args " ")))
+                                              (list (nix-current-sandbox)))
+                                           args))))
               (setq-local lsp-haskell-process-wrapper-function default-nix-wrapper)
               (setq-local haskell-process-wrapper-function
                           (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
