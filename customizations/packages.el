@@ -7,6 +7,7 @@
     ample-theme
     ample-zen-theme
     ansible
+    ansible-doc
     auth-source-pass
     avy
     cider
