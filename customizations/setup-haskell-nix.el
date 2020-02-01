@@ -42,3 +42,10 @@
             (setq-local flycheck-executable-find
                         (lambda (cmd)
                          (nix-executable-find (nix-current-sandbox) cmd)))))
+
+(define-key haskell-mode-map "C-x M-q"
+  (lambda ()
+    (interactive)
+    (basic-save-buffer)
+    (shell-command (concat "stylish-haskell -i " buffer-file-name))
+    (revert-buffer nil t)))
