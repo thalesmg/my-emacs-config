@@ -18,6 +18,7 @@
     counsel
     counsel-projectile
     darktooth-theme
+    dhall-mode
     diff-hl
     docker-tramp
     edit-server
