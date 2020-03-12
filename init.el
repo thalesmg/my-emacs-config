@@ -8,6 +8,9 @@
              '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+;; confirm before exiting emacs
+(setq confirm-kill-emacs 'y-or-n-p)
+
 ;; avoid warnings about byte compiled versions being newer
 (setq load-prefer-newer t)
 
