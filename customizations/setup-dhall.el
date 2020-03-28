@@ -1,4 +1,4 @@
 (require 'dhall-mode)
-(require 'lsp)
+(require 'lsp-mode)
 
 (add-hook 'dhall-mode-hook #'lsp)
