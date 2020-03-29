@@ -1,5 +1,5 @@
 (require 'nix-haskell-mode)
-(require 'lsp)
+(require 'lsp-mode)
 (require 'lsp-haskell)
 (require 'lsp-ui)
 (require 'nix-sandbox)
