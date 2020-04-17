@@ -14,5 +14,5 @@
     (message projectile-project-root)
     (let ((curr-file-path (string-remove-prefix (projectile-project-root) buffer-file-name)))
       (cd (projectile-project-root))
-      (shell-command "cargo fmt")
+      (shell-command "cargo +stable fmt")
       (revert-buffer nil t))))
