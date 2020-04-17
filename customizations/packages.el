@@ -22,6 +22,7 @@
     diff-hl
     docker-tramp
     edit-server
+    elfeed
     elm-mode
     elpy
     erlang
