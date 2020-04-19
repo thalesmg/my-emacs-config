@@ -1,6 +1,6 @@
 ;; (require 'intero)
 (require 'flycheck)
-(require 'dante-mode)
+(require 'dante)
 
 ;; Intero
 ;; (add-hook 'haskell-mode-hook 'intero-mode)
