@@ -17,6 +17,7 @@
     company-terraform
     counsel
     counsel-projectile
+    dante
     darktooth-theme
     dhall-mode
     diff-hl
