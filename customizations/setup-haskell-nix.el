@@ -14,6 +14,7 @@
 ;; (eval-after-load 'flymake '(require 'flymake-cursor))
 
 (remove-hook 'haskell-mode-hook 'intero-mode)
+(remove-hook 'haskell-mode-hook 'dante-mode)
 
 (setq lsp-prefer-flymake nil)
 
@@ -43,9 +44,9 @@
                         (lambda (cmd)
                          (nix-executable-find (nix-current-sandbox) cmd)))))
 
-(define-key haskell-mode-map "C-x M-q"
-  (lambda ()
-    (interactive)
-    (basic-save-buffer)
-    (shell-command (concat "stylish-haskell -i " buffer-file-name))
-    (revert-buffer nil t)))
+;; (define-key haskell-mode-map "C-x M-q"
+;;   (lambda ()
+;;     (interactive)
+;;     (basic-save-buffer)
+;;     (shell-command (concat "stylish-haskell -i " buffer-file-name))
+;;     (revert-buffer nil t)))
