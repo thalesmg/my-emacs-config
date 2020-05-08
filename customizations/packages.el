@@ -21,6 +21,7 @@
     darktooth-theme
     dhall-mode
     diff-hl
+    direnv
     docker-tramp
     edit-server
     elfeed
