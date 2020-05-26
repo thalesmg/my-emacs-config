@@ -56,12 +56,19 @@
 (global-set-key (kbd "C-x 0") 'switch-window-then-delete)
 
 ;; copies current buffer file name
-(global-set-key
- (kbd "C-c C-b")
- (lambda (&optional args)
-   (interactive)
-   (message (buffer-file-name))
-   (kill-new (buffer-file-name))))
+(defun tmg/yank-buffer-name (&optional prefix)
+  (interactive "P")
+  (if prefix
+      (let* ((name (buffer-file-name))
+             (root (projectile-project-root))
+             (relative (string-trim-left name root)))
+        (message relative)
+        (kill-new relative))
+      (progn
+        (message (buffer-file-name))
+        (kill-new (buffer-file-name)))))
+
+(global-set-key (kbd "C-c C-b") 'tmg/yank-buffer-name)
 
 ;; eshell maroto
 (global-set-key (kbd "C-c s") 'eshell)
