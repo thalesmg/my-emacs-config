@@ -59,3 +59,7 @@ of change will be 23:59 on that day"
   (goto-char (mark))
   (pop-mark))
 (define-key org-mode-map (kbd "C-c t s") 'tmg-org-begin-src)
+
+(use-package org-roam
+  :custom
+  (org-roam-directory "~/org/roam/"))
