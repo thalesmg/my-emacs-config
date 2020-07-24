@@ -96,3 +96,6 @@
 
 ;; expand region
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+(custom-set-faces
+ '(ediff-odd-diff-C ((t (:background "#555555")))))
