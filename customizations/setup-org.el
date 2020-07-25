@@ -60,6 +60,16 @@ of change will be 23:59 on that day"
   (pop-mark))
 (define-key org-mode-map (kbd "C-c t s") 'tmg-org-begin-src)
 
+(defun tmg-org-begin-quote ()
+  ""
+  (interactive)
+  (insert "#+BEGIN_QUOTE\n")
+  (set-mark (point))
+  (insert "\n#+END_QUOTE\n")
+  (goto-char (mark))
+  (pop-mark))
+(define-key org-mode-map (kbd "C-c t q") 'tmg-org-begin-quote)
+
 (use-package org-roam
   :custom
   (org-roam-directory "~/org/roam/"))
