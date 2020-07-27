@@ -53,8 +53,9 @@ of change will be 23:59 on that day"
 (defun tmg-org-begin-src ()
   ""
   (interactive)
-  (insert "#+BEGIN_SRC\n")
+  (insert "#+BEGIN_SRC")
   (set-mark (point))
+  (insert "\n")
   (insert "\n#+END_SRC\n")
   (goto-char (mark))
   (pop-mark))
