@@ -1,3 +1,5 @@
+(setq custom--inhibit-theme-enable nil)
+
 (custom-theme-set-faces
   'deeper-blue
   '(font-lock-comment-face ((t (:foreground "gray50" :slant italic))))
