@@ -8,6 +8,15 @@
 (remove-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-mode-hook 'dante-mode)
 
+(add-hook 'haskell-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-x M-q")
+                           (lambda ()
+                             (interactive)
+                             (basic-save-buffer)
+                             (shell-command (concat "stylish-haskell -i "
+                                                    buffer-file-name))))))
+
 ;; (with-eval-after-load 'intero
 ;;   (progn
 ;;     (flycheck-add-next-checker 'intero '(warning . haskell-hlint))
