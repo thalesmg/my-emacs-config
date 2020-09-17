@@ -32,7 +32,9 @@
                                            args))))
               (setq-local lsp-haskell-process-wrapper-function default-nix-wrapper)
               (setq-local haskell-process-wrapper-function
-                          (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
+                          (lambda (args)
+                            (apply 'nix-shell-command (nix-current-sandbox) args)))
+              (setq-local lsp-haskell-process-path-hie "haskell-language-server-wrapper")
               )))
 
 (add-hook 'flycheck-mode-hook
