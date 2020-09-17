@@ -52,6 +52,7 @@
     magit
     markdown-mode
     merlin
+    multiple-cursors
     nix-haskell-mode
     nix-mode
     nix-sandbox

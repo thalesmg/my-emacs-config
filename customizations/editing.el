@@ -99,3 +99,7 @@
 
 (custom-set-faces
  '(ediff-odd-diff-C ((t (:background "#555555")))))
+
+;; multiple cursors
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C->") 'mc/mark-previous-like-this)
