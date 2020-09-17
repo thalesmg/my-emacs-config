@@ -94,7 +94,8 @@
 
 (use-package clojure-mode
   :bind
-  ("C-x M-q" . zprint-this))
+  (:map clojure-mode-map
+        ("C-x M-q" . zprint-this)))
 
 ;; Clojurescript CIDER/figwheel
 (require 'cider)
