@@ -1,8 +1,7 @@
-;;; ats2-mode.el --- Major mode to edit ATS2 source code
+;; ats2-mode.el -- Major mode to edit ATS2 source code
 
 ;; Copyright (C) 2007  Stefan Monnier
 ;; updated and modified by Matthew Danish <mrd@debian.org> 2008-2013
-;; updated and modified by Varun Gandhi <theindigamer15@gmail.com> 2018
 
 ;; Author: Stefan Monnier <monnier@iro.umontreal.ca>
 ;; Keywords:
@@ -18,9 +17,17 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with this program; see the file COPYING.  If not, write to
+;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
+
+;;; Commentary:
+
+;; Todo:
+;; - font-lock
+;; - imenu
+;; - outline
+;; - indentation
 
 ;;; Code:
 
@@ -30,20 +37,16 @@
 (when (not (boundp 'xemacsp))
   (setq xemacsp (boundp 'xemacs-logo)))
 
-;; Nice explanation on syntax table here.
-;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
-;; TODO: Read through it and make sure everything here makes sense.
-(defvar ats2-mode-syntax-table
+(defvar ats-mode-syntax-table
   (let ((st (make-syntax-table)))
     ;; (*..*) for nested comments.
     (modify-syntax-entry ?\( "() 1n" st)
     (modify-syntax-entry ?\) ")( 4n" st)
     (modify-syntax-entry ?*  ". 23n" st)
-    ;; C-like end-of-line comments.
-    ;; See https://stackoverflow.com/q/25245469/2682729
-    (modify-syntax-entry ?/  "< 1" st)
-    (modify-syntax-entry ?/  "< 2" st)
-    (modify-syntax-entry ?\n "> " st)
+    ;; Not sure how to do // for single-line comments.
+    ;; The current setting means that (/ and /* start a comment as well :-(
+    (modify-syntax-entry ?/  ". 12b" st)
+    (modify-syntax-entry ?\n ">  b" st)
     ;; Strings.
     (modify-syntax-entry ?\" "\"" st)
     ;; Same problem as in Ada: ' starts a char-literal but can appear within
@@ -67,7 +70,6 @@
     (modify-syntax-entry ?\, ". p" st)
     ;; Just a guess for now.
     (modify-syntax-entry ?\\ "\\" st)
-    ;; TODO: Figure out what these comments are about.
     ;; Handle trailing +/-/* in keywords.
     ;; (modify-syntax-entry ?+ "_" st)
     ;; (modify-syntax-entry ?- "_" st)
@@ -76,16 +78,44 @@
     ;; supported by Emacs.  Worse: there are 2 kinds, one where "!$#?" are
     ;; allowed and one where "<>" are allowed instead.  Hongwei, what's that
     ;; all about?
-    (dolist (i '(?% ?& ?+ ?- ?. ?: ?= ?~ ?^ ?| ?< ?> ?! ?? ?\;))
-      (modify-syntax-entry i "." st))
+    (modify-syntax-entry ?% "." st)
+    (modify-syntax-entry ?& "." st)
+    (modify-syntax-entry ?+ "." st)
+    (modify-syntax-entry ?- "." st)
+    (modify-syntax-entry ?. "." st)
+    ;; (modify-syntax-entry ?/ "." st)  ; Already covered above for comments.
+    (modify-syntax-entry ?: "." st)
+    (modify-syntax-entry ?= "." st)
+    ;; (modify-syntax-entry ?@ "." st)  ; Already defined above.
+    (modify-syntax-entry ?~ "." st)
+    ;; (modify-syntax-entry ?` "." st)  ; Already defined above.
+    (modify-syntax-entry ?^ "." st)
+    (modify-syntax-entry ?| "." st)
+    ;; (modify-syntax-entry ?* "." st)  ; Already covered above for comments.
+    (modify-syntax-entry ?< "." st)
+    (modify-syntax-entry ?> "." st)
+    (modify-syntax-entry ?! "." st)
+    ;; (modify-syntax-entry ?$ "." st)  ; Already defined above.
+    ;; (modify-syntax-entry ?# "." st)  ; Already defined above.
+    (modify-syntax-entry ?? "." st)
+    ;; Real punctuation?
+    (modify-syntax-entry ?:  "." st)
+    (modify-syntax-entry ?\; "." st)
     st))
 
-(defvar ats2-mode-font-lock-syntax-table
-  (let ((st (copy-syntax-table ats2-mode-syntax-table)))
+(defvar ats-mode-font-lock-syntax-table
+  (let ((st (copy-syntax-table ats-mode-syntax-table)))
     (modify-syntax-entry ?_ "w" st)
     st))
 
 ;; Font-lock.
+
+(defface ats-font-lock-static-face
+  '(;; (default :inherit font-lock-type-face)
+    (t (:foreground "SkyBlue" :weight normal)))
+  "Face used for static-related parts of code."
+  :group 'ats-font-lock-faces)
+(defvar ats-font-lock-static-face 'ats-font-lock-static-face)
 
 (defface ats-font-lock-metric-face
   '(;; (default :inherit font-lock-type-face)
@@ -93,6 +123,20 @@
   "Face used for termination metrics."
   :group 'ats-font-lock-faces)
 (defvar ats-font-lock-metric-face 'ats-font-lock-metric-face)
+
+(defface ats-font-lock-keyword-face
+  '(;; (default :inherit font-lock-keyword-face)
+    (t (:foreground "Cyan" :weight normal)))
+  "Face used for keywords."
+  :group 'ats-font-lock-faces)
+(defvar ats-font-lock-keyword-face 'ats-font-lock-keyword-face)
+
+(defface ats-font-lock-c-face
+  '(;; (default :inherit font-lock-comment-face)
+    (t (:foreground "Pink" :weight normal)))
+  "Face used for C code."
+  :group 'ats-font-lock-faces)
+(defvar ats-font-lock-c-face 'ats-font-lock-c-face)
 
 (defun ats-context-free-search (regexp &optional limit)
   "Use inside a parenthesized expression to find a regexp at the same level."
@@ -137,13 +181,13 @@
           (store-match-data (list begin end))
           (point))))))
 
-;; TODO: What does the author mean by "static-search"?
 (defun ats-font-lock-static-search (&optional limit)
   (interactive)
   (when (null limit) (setq limit (point-max)))
   (let (foundp begin end (key-begin 0) (key-end 0) pt)
-    (cl-flet ((store ()
-             (store-match-data (list begin end key-begin key-end))))
+    (cl-letf
+      ((store ()
+       (store-match-data (list begin end key-begin key-end))))
       ;; attempt to find some statics to highlight and store the
       ;; points beginning and ending the region to highlight.  needs
       ;; to be a loop in order to handle cases like ( foo : type )
@@ -177,8 +221,6 @@
              (t
               (setq pt nil))))
            ;; handle ( ... | ... )
-           ;; FIXME: insert logic here to ignore this when we detect
-           ;; a | due to a case.
            ((looking-at "(")
             (forward-char 1)
             (incf begin)
@@ -227,18 +269,62 @@
     pt))
 
 (defvar ats-word-keywords
-  '("abstype" "abst0ype" "absprop" "absview" "absvtype" "absviewtype" "absvt0ype" "absviewt0ype"
-    "and" "as" "assume" "begin" "break" "continue" "classdec" "datasort"
-    "datatype" "dataprop" "dataview" "datavtype" "dataviewtype" "do" "dynload" "else"
-    "end" "exception" "extern" "extype" "extval" "fn" "fnx" "fun"
-    "prfn" "prfun" "praxi" "castfn" "if" "in" "infix" "infixl"
-    "infixr" "prefix" "postfix" "implmnt" "implement" "primplmnt" "primplement" "lam"
-    "llam" "fix" "let" "local" "macdef" "macrodef" "nonfix" "overload"
-    "of" "op" "rec" "scase" "sif" "sortdef" "sta" "stacst"
-    "stadef" "stavar" "staload" "symelim" "symintr" "then" "try" "tkindef"
-    "type" "typedef" "propdef" "viewdef" "vtypedef" "viewtypedef" "val" "prval"
-    "var" "prvar" "when" "where" "for" "while" "with" "withtype"
-    "withprop" "withview" "withvtype" "withviewtype"))
+  '(
+    "absprop"
+    "absview"
+    "abstype"
+    "abst0ype"
+    "abstbox"
+    "absvtbox"
+    "abstflt"
+    "absvtflt"
+    "abstflat"
+    "absvtflat"
+    "absvtype"
+    "absvt0ype"
+    "absviewtype"
+    "absviewt0ype"
+    "assume" "absimpl"
+    "reassume" "absreimpl"
+    "staload" "dynload"
+    "as" "in"
+    "of" "op"
+    "and" "end"
+;;  "endlet"
+;;  "endwhere"
+;;  "endlocal"
+    "begin" "break" "continue"
+    "classdec"
+    "datasort"
+    "datatype"
+    "dataprop"
+    "dataview"
+    "datavtype"
+    "dataviewtype"
+    "exception"
+    "extern" "extype" "extval"
+    "fn" "fnx" "fun"
+    "prfn" "prfun" "praxi" "castfn"
+    "rec" "val" "prval" "var" "prvar"
+    "case" "scase"
+    "if" "sif" "then" "else"
+    "nonfix"
+    "prefix" "postfix"
+    "infix" "infixl" "infixr"
+    "symelim" "symintr" "overload"
+    "implmnt" "implement"
+    "primplmnt" "primplement"
+    "lam" "llam" "fix" "let" "local"
+    "macdef" "macrodef"
+    "sortdef" "sexpdef" "tkindef"
+    "sta" "stacst" "stadef" "stavar"
+    "type" "t0ype"
+    "vtype" "vt0ype"
+    "viewtype" "viewt0ype"
+    "try" "with"
+    "when" "where" "for" "while"
+    "typedef" "propdef" "viewdef" "vtypedef" "viewtypedef"
+    "withtype" "withprop" "withview" "withvtype" "withviewtype"))
 
 (defun wrap-word-keyword (w)
   (concat "\\<" w "\\>"))
@@ -250,45 +336,30 @@
     "$record" "$record_t" "$record_vt" "$tup" "$tup_t" "$tup_vt" "$tuple" "$tuple_t"
     "$tuple_vt" "$raise" "$showtype" "$myfilename" "$mylocation" "$myfunction" "#assert" "#define"
     "#elif" "#elifdef" "#elifndef" "#else" "#endif" "#error" "#if" "#ifdef"
-    "#ifndef" "#include" "#print" "#then" "#undef"))
+    "#ifndef" "#print" "#then" "#undef" "#include" "#staload" "#dynload" "#require"))
 
 (defun wrap-special-keyword (w)
   (concat "\\" w "\\>"))
 
 (defvar ats-keywords
-  (append (list "\\<\\(s\\)?case[\+\*]?\\>")
+  (append (list "\\<\\(s\\)?case\\(+\\|*\\)?\\>")
           (mapcar 'wrap-word-keyword ats-word-keywords)
           (mapcar 'wrap-special-keyword ats-special-keywords)))
 
-;; FIXME: This shouldn't be a global variable?
-(defvar ats-whitespace-or-newline "[[:space:]\n]+")
-
-;; Stolen from rust-mode.el
-(defun ats-re-word (inner) (concat "\\<" inner "\\>"))
-(defun ats-re-grab (inner) (concat "\\(" inner "\\)"))
-(defconst ats-re-ident "[[:word:][:multibyte:]_][[:word:][:multibyte:]_[:digit:]]*")
-(defun ats-re-item-def (itype)
-  (concat (ats-re-word itype) ats-whitespace-or-newline (ats-re-grab ats-re-ident)))
-
 (defvar ats-font-lock-keywords
-  ;; FIXME: using preprocessor face for C code for now.
   (append
-   '((ats-font-lock-c-code-search (0 font-lock-preprocessor-face t))
-     ("\\.<[^>]*>\\." (0 'ats-font-lock-metric-face)) ;; TODO: what does this face do?
-     (ats-font-lock-static-search ;; this function isn't working correctly.
-      (0 'font-lock-constant-face)
-      (1 'font-lock-keyword-face)))
+   '((ats-font-lock-c-code-search (0 'ats-font-lock-c-face t))
+     ;; ("%{[[:print:][:cntrl:]]*%}" (0 'ats-font-lock-c-face))
+
+     ;;     ("[^%]\\({[^|}]*|?[^}]*}\\)" (1 'ats-font-lock-static-face))
+     ;;     ("[^']\\(\\[[^]|]*|?[^]]*\\]\\)" (1 'ats-font-lock-static-face))
+     ("\\.<[^>]*>\\." (0 'ats-font-lock-metric-face))
+     (ats-font-lock-static-search
+      (0 'ats-font-lock-static-face)
+      (1 'ats-font-lock-keyword-face)))
 
    (list (list (mapconcat 'identity ats-keywords "\\|")
-               '(0 'font-lock-keyword-face)))
-   (mapcar #'(lambda (x)
-               (list (ats-re-item-def (car x))
-                     1 (cdr x)))
-           '(("datatype" . font-lock-type-face)
-             ("implement" . font-lock-function-name-face)
-             ("fun" . font-lock-function-name-face)
-             ("val" . font-lock-function-name-face)
-             ("and" . font-lock-function-name-face)))))
+               '(0 'ats-font-lock-keyword-face)))))
 
 (defvar ats-font-lock-syntactic-keywords
   '(("(\\(/\\)" (1 ". 1b"))             ; (/ does not start a comment.
@@ -299,16 +370,16 @@
      (1 "\"'") (2 "\"'"))
     ))
 
-(define-derived-mode c/ats2-mode c-mode "C/ATS"
+(define-derived-mode c/ats-mode c-mode "C/ATS"
   "Major mode to edit C code embedded in ATS code."
   (unless (local-variable-p 'compile-command)
-    (setq-local compile-command
-                (let ((file buffer-file-name))
-                  (format "patsopt -tc -d %s" file)))
+    (set (make-local-variable 'compile-command)
+         (let ((file buffer-file-name))
+           (format "patscc -tcats %s" file)))
     (put 'compile-command 'permanent-local t))
-  (setq indent-line-function 'c/ats2-mode-indent-line))
+  (setq indent-line-function 'c/ats-mode-indent-line))
 
-(defun c/ats2-mode-indent-line (&optional arg)
+(defun c/ats-mode-indent-line (&optional arg)
   (let (c-start c-end)
     (save-excursion
       (if (re-search-backward "%{[^$]?" 0 t)
@@ -325,26 +396,24 @@
       (c-indent-line arg))))
 
 ;;;###autoload
-(define-derived-mode ats2-mode prog-mode "ATS2"
+(define-derived-mode ats-mode fundamental-mode "ATS2"
   "Major mode to edit ATS2 source code."
-  (setq-local font-lock-defaults
-              '(ats-font-lock-keywords nil nil ((?_ . "w") (?= . "_")) nil
-                                       (font-lock-syntactic-keywords . ats-font-lock-syntactic-keywords)
-                                       (font-lock-mark-block-function . ats-font-lock-mark-block)))
-  (setq-local comment-start "(*")
-  (setq-local comment-continue " *")
-  (setq-local comment-end "*)")
+  (set (make-local-variable 'font-lock-defaults)
+       '(ats-font-lock-keywords nil nil ((?_ . "w") (?= . "_")) nil
+         (font-lock-syntactic-keywords . ats-font-lock-syntactic-keywords)
+         (font-lock-mark-block-function . ats-font-lock-mark-block)))
+  (set (make-local-variable 'comment-start) "(*")
+  (set (make-local-variable 'comment-continue)  " *")
+  (set (make-local-variable 'comment-end) "*)")
   (setq indent-line-function 'tab-to-tab-stop)
   (setq tab-stop-list (loop for x from 2 upto 120 by 2 collect x))
   (setq indent-tabs-mode nil)
   (local-set-key (kbd "RET") 'newline-and-indent-relative)
   (unless (local-variable-p 'compile-command)
-    (setq-local compile-command
-                (let ((file buffer-file-name))
-                  (format "patsopt -tc -d %s" file)))
+    (set (make-local-variable 'compile-command)
+         (let ((file buffer-file-name))
+           (format "patscc -tcats %s" file)))
     (put 'compile-command 'permanent-local t))
-  ;; FIXME: This seems like a bad idea. We should replace it with a proper
-  ;; variable so that it can be modified externally.
   (local-set-key (kbd "C-c C-c") 'compile)
   (cond
    ;; Emacs 21
@@ -376,7 +445,8 @@
                       (back-to-indentation)
                       (current-column))))
 
-;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.[dsh]ats\\'" . ats2-mode))
+;;;autoload
+(add-to-list 'auto-mode-alist '("\\.\\(s\\|d\\|h\\)ats\\'" . ats-mode))
 
-(provide 'ats2-mode)
+(provide 'ats-mode)
+;;; end of [ats2-mode.el]
