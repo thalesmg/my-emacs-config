@@ -1,7 +1,7 @@
 (load "ats2-mode.el")
 (load "flycheck-ats2.el")
 
-(require 'ats2-mode)
+(require 'ats-mode)
 (require 'flycheck)
 (require 'ats2-flycheck)
 
