@@ -20,3 +20,5 @@ tramp
 anaconda-mode
 session.[0-9a-f]+
 /elpy/
+
+/eln-cache/
