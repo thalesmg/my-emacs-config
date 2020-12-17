@@ -31,6 +31,7 @@
     exec-path-from-shell
     expand-region
     flycheck-clj-kondo
+    flycheck-ledger
     flycheck-purescript
     flycheck-rust
     forge
@@ -46,6 +47,7 @@
     indent-guide
     ivy
     json-mode
+    ledger-mode
     lsp-haskell
     lsp-mode
     lsp-ui
