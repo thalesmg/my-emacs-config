@@ -60,6 +60,7 @@
     ;; nix-sandbox
     nixos-options
     org-journal
+    org-roam
     ox-reveal
     paradox
     paredit
