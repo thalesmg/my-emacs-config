@@ -1,21 +1,20 @@
 ;; (require 'intero)
 (require 'flycheck)
-(require 'dante)
+;; (require 'dante)
 
 ;; Intero
 ;; (add-hook 'haskell-mode-hook 'intero-mode)
 
-(remove-hook 'haskell-mode-hook #'lsp)
-(add-hook 'haskell-mode-hook 'dante-mode)
+;; (remove-hook 'haskell-mode-hook #'lsp)
+;; (add-hook 'haskell-mode-hook 'dante-mode)
 
 (use-package haskell-mode
   :bind
-  (:map haskell-mode-map
-        ("C-x M-q" . (lambda ()
-                       (interactive)
-                       (basic-save-buffer)
-                       (shell-command (concat "stylish-haskell -i "
-                                              buffer-file-name))))))
+  (("C-x M-q" . (lambda ()
+                  (interactive)
+                  (basic-save-buffer)
+                  (shell-command (concat "stylish-haskell -i "
+                                         buffer-file-name))))))
 
 ;; (with-eval-after-load 'intero
 ;;   (progn
