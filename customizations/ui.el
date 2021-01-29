@@ -33,7 +33,8 @@
 ;; (set-frame-font "Fira Mono-8:style=Regular")
 ;; (set-frame-font "Iosevka SS09-8:style=Regular")
 ;; (set-frame-font "Hasklig-8:style=Regular")
-(set-frame-font "Source Code Pro-8:style=Regular")
+(set-frame-font "Iosevka TMG-12:style=Regular")
+;; (set-frame-font "Source Code Pro-12:style=Regular")
 (set-fontset-font "fontset-standard" nil "Symbola:style=Regular")
 
 ;; No cursor blinking, it's distracting
@@ -87,4 +88,8 @@
 ;; (windmove-default-keybindings)
 
 ;; open helm window in the opposite buffer
-(setq helm-split-window-default-side 'other)
+;; (setq helm-split-window-default-side 'other)
+
+;; open helm window in below, splitting current buffer
+(setq helm-split-window-default-side 'below)
+(setq helm-split-window-inside-p t)
