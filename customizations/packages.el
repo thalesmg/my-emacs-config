@@ -65,6 +65,7 @@
     paradox
     paredit
     password-store
+    polymode
     projectile
     projectile-ripgrep
     psc-ide
