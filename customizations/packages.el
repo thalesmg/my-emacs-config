@@ -14,6 +14,7 @@
     clojure-mode
     clojure-mode-extra-font-locking
     color-theme-sanityinc-tomorrow
+    company-coq
     company-terraform
     counsel
     counsel-projectile
@@ -68,6 +69,7 @@
     polymode
     projectile
     projectile-ripgrep
+    proof-general
     psc-ide
     purescript-mode
     quelpa
