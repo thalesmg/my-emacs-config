@@ -13,6 +13,16 @@
             (add-hook 'auto-save-hook 'org-save-all-org-buffers nil t)
             (auto-save-mode)))
 
+(custom-set-variables
+ '(org-format-latex-options
+   '(:foreground default
+     :background default
+     :scale 1.8
+     :html-foreground "Black"
+     :html-background "Transparent"
+     :html-scale 1.0
+     :matchers ("begin" "$1" "$" "$$" "\\(" "\\["))))
+
 (setq org-log-done t)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
