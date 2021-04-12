@@ -111,8 +111,12 @@
 (setq quelpa-update-melpa-p nil)
 
 (quelpa
- '(nix-sandbox :fetcher github
-               :repo "thalesmg/nix-emacs"
-               :branch "fix-sandbox-directory"))
+ ;; '(nix-sandbox :fetcher github
+ ;;               :repo "thalesmg/nix-emacs"
+ ;;               :branch "fix-sandbox-directory")
+ '(alloy-mode :fetcher github
+              :repo "thalesmg/alloy-mode"
+              :branch "master")
+ )
 
 (provide 'packages)
