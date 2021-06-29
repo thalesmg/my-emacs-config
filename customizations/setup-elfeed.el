@@ -1,9 +1,17 @@
 (require 'elfeed)
+(require 'elfeed-org)
 
-(load "~/org/diversos/elfeed.el" t)
 
-(setq elfeed-feeds
-      (if (boundp 'tmg/elfeed-feeds)
-          tmg/elfeed-feeds
-        '())
-      )
+(use-package elfeed
+      :ensure t
+      :config
+      (setq
+            ;; elfeed-db-directory (expand-file-name "elfeed" user-emacs-directory)
+            elfeed-show-entry-switch 'display-buffer))
+
+(use-package elfeed-org
+  :ensure t
+  :config
+  (setq elfeed-show-entry-switch 'display-buffer)
+  (setq rmh-elfeed-org-files
+        (list "~/org/diversos/elfeed.org")))

@@ -26,6 +26,8 @@
     docker-tramp
     edit-server
     elfeed
+    elfeed-org
+    elfeed-web
     elm-mode
     elpy
     erlang
