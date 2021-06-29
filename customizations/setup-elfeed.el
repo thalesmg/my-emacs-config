@@ -1,11 +1,9 @@
 (require 'elfeed)
 
+(load "~/org/diversos/elfeed.el" t)
+
 (setq elfeed-feeds
-      '("https://haskellweekly.news/newsletter.atom"
-        "http://alan.petitepomme.net/cwn/cwn.rss"
-        "https://weekly.nixos.org/feeds/all.rss.xml"
-        "https://this-week-in-rust.org/atom.xml"
-        "https://us1.campaign-archive.com/feed?u=faa8eb4ef3a111cef92c4f3d4&id=e505c88a2e"
-        "https://rust-gamedev.github.io/rss.xml"
-        "http://blog.acolyer.org/feed/"
-        ))
+      (if (boundp 'tmg/elfeed-feeds)
+          tmg/elfeed-feeds
+        '())
+      )
