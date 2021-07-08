@@ -50,15 +50,15 @@ of change will be 23:59 on that day"
 ;; (org-alert-enable)
 ;; (setq alert-default-style 'libnotify)
 
-(defun tmg/org-journal-new-entry-xerpa (prefix &optional time)
-  ""
-  (interactive "P")
-  (require 'org-journal)
-  (let ((old-org-journal-dir org-journal-dir))
-    (ignore-errors
-      (customize-set-variable 'org-journal-dir "~/dev/org-xerpa/")
-      (call-interactively 'org-journal-new-entry nil [prefix time]))
-    (customize-set-variable 'org-journal-dir old-org-journal-dir)))
+;; (defun tmg/org-journal-new-entry-xerpa (prefix &optional time)
+;;   ""
+;;   (interactive "P")
+;;   (require 'org-journal)
+;;   (let ((old-org-journal-dir org-journal-dir))
+;;     (ignore-errors
+;;       (customize-set-variable 'org-journal-dir "~/dev/org-xerpa/")
+;;       (call-interactively 'org-journal-new-entry nil [prefix time]))
+;;     (customize-set-variable 'org-journal-dir old-org-journal-dir)))
 
 (defun tmg-org-begin-src ()
   ""
