@@ -85,4 +85,5 @@ of change will be 23:59 on that day"
   :custom
   (org-roam-directory "~/org/org-roam/")
   (org-roam-db-location "~/org/org-roam.db")
-  (org-roam-completion-system 'ivy))
+  (org-roam-completion-system 'ivy)
+  (org-roam-v2-ack t))
