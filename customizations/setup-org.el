@@ -82,8 +82,9 @@ of change will be 23:59 on that day"
 (define-key org-mode-map (kbd "C-c t q") 'tmg-org-begin-quote)
 
 (use-package org-roam
+  :init
+  (setq org-roam-v2-ack t)
   :custom
   (org-roam-directory "~/org/org-roam/")
   (org-roam-db-location "~/org/org-roam.db")
-  (org-roam-completion-system 'ivy)
-  (org-roam-v2-ack t))
+  (org-roam-completion-system 'ivy))
