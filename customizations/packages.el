@@ -35,7 +35,7 @@
     expand-region
     flycheck-clj-kondo
     flycheck-ledger
-    flycheck-purescript
+    ;; flycheck-purescript
     flycheck-rust
     forge
     git-timemachine
@@ -60,7 +60,7 @@
     multiple-cursors
     nix-haskell-mode
     nix-mode
-    ;; nix-sandbox
+    nix-sandbox
     nixos-options
     org-journal
     org-roam
@@ -76,6 +76,7 @@
     purescript-mode
     quelpa
     racer
+    racket-mode
     rainbow-delimiters
     reason-mode
     restclient
