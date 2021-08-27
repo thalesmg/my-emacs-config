@@ -60,7 +60,7 @@ of change will be 23:59 on that day"
 ;;       (call-interactively 'org-journal-new-entry nil [prefix time]))
 ;;     (customize-set-variable 'org-journal-dir old-org-journal-dir)))
 
-(defun tmg-org-begin-src ()
+(defun tmg/org-begin-src ()
   ""
   (interactive)
   (insert "#+BEGIN_SRC ")
@@ -69,9 +69,9 @@ of change will be 23:59 on that day"
   (insert "\n#+END_SRC\n")
   (goto-char (mark))
   (pop-mark))
-(define-key org-mode-map (kbd "C-c t s") 'tmg-org-begin-src)
+(define-key org-mode-map (kbd "C-c t s") 'tmg/org-begin-src)
 
-(defun tmg-org-begin-quote ()
+(defun tmg/org-begin-quote ()
   ""
   (interactive)
   (insert "#+BEGIN_QUOTE\n")
@@ -79,7 +79,73 @@ of change will be 23:59 on that day"
   (insert "\n#+END_QUOTE\n")
   (goto-char (mark))
   (pop-mark))
-(define-key org-mode-map (kbd "C-c t q") 'tmg-org-begin-quote)
+(define-key org-mode-map (kbd "C-c t q") 'tmg/org-begin-quote)
+
+(defun tmg/slugify (string)
+  (replace-regexp-in-string
+   "[^a-z0-9-]" "-"
+   (downcase string)))
+
+(defun tmg/trim-string (string)
+  (replace-regexp-in-string
+   "^[ \t]*" ""
+   (replace-regexp-in-string
+    "[ \t]$" ""
+    string)))
+
+(defun tmg/org-heading-custom-id-of (heading-title)
+  (concat "sec:" (tmg/trim-string (tmg/slugify heading-title))))
+
+(defun tmg/org-list-all-headings ()
+  (let ((headings '()))
+    (org-map-entries
+     (lambda ()
+       (pcase (org-heading-components)
+         (`(,level ,_ ,_ ,_ ,title ,_)
+          (setq headings
+                (append headings
+                        (list `(:level ,level
+                                :title ,title
+                                :target ,(tmg/org-heading-custom-id-of title)))))))))
+    headings))
+
+(defun tmg/org-insert-all-heading-targets ()
+  (org-map-entries
+   (lambda ()
+     (pcase (org-heading-components)
+       (`(,_ ,_ ,_ ,_ ,title ,_)
+        (when (not (org-entry-get (point) "CUSTOM_ID"))
+          (let ((custom-id (tmg/org-heading-custom-id-of title)))
+            (org-entry-put (point) "CUSTOM_ID" custom-id))))))))
+
+(defun org-dblock-write:tmg/table-of-contents (&optional params)
+  (let ((max-depth (or (plist-get params :max-depth) 1))
+        (headings (tmg/org-list-all-headings)))
+    (tmg/org-insert-all-heading-targets)
+    (dolist (heading headings)
+      (when (<= (plist-get heading :level) max-depth)
+        (let ((title (plist-get heading :title))
+              (level (plist-get heading :level))
+              (target (plist-get heading :target)))
+          (dotimes (_ (- level 1))
+            (insert "  "))
+          (insert "- ")
+          (org-insert-link nil (concat "#" target) title)
+          (insert "\n"))))))
+
+(defun tmg/org-table-of-contents (&optional params)
+  "generate a table of contents for the current buffer.
+`C-c C-x x' to call `org-dynamic-block-insert-dblock', `C-c C-c'
+to update the dynamic block."
+  (interactive)
+  (pcase (org-find-dblock "tmg/table-of-contents")
+    (`nil
+     (org-create-dblock
+      '(:name "tmg/table-of-contents" :max-depth 1)))
+    (start (goto-char start)))
+  (org-update-dblock))
+
+(org-dynamic-block-define "tmg/table-of-contents" #'tmg/org-table-of-contents)
 
 (use-package org-roam
   :init
