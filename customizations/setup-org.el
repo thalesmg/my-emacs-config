@@ -147,6 +147,20 @@ to update the dynamic block."
 
 (org-dynamic-block-define "tmg/table-of-contents" #'tmg/org-table-of-contents)
 
+(defun tmg/rows-to-org-table (rows &optional headers)
+  (let ((beg (point))
+        (insert-row (lambda (xs)
+                      (insert (string-join xs "\t"))
+                      (insert "\n"))))
+    (when headers
+      (funcall insert-row headers))
+    (dolist (row rows)
+      (funcall insert-row row))
+    (org-table-convert-region beg (point) '(16))
+    (when headers
+      (goto-char beg)
+      (org-table-insert-hline))))
+
 (use-package org-roam
   :init
   (setq org-roam-v2-ack t)
