@@ -28,3 +28,26 @@
 
 ;; prevent Emacs from freezing with C-z...
 (global-unset-key (kbd "C-z"))
+
+(defun tmg/sha256 (beg end)
+  (interactive (if (use-region-p)
+                   (list (region-beginning) (region-end))
+                 (list (point-min) (point-max))))
+  (let ((checksum '())
+        (cur-buf (current-buffer))
+        (buffer-output (make-temp-name "tmg/sha256")))
+    (shell-command-on-region beg end "sha256sum" buffer-output)
+    (switch-to-buffer buffer-output)
+    (setq checksum (replace-regexp-in-string
+                    " +-.*$"
+                    ""
+                    (replace-regexp-in-string
+                     "\n"
+                     ""
+                     (buffer-string))))
+    (switch-to-buffer cur-buf)
+    (kill-buffer buffer-output)
+    (when (equal current-prefix-arg '(4))
+      (insert checksum))
+    (message "%s" checksum)
+    checksum))
