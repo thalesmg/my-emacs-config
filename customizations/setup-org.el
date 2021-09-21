@@ -161,6 +161,20 @@ to update the dynamic block."
       (goto-char beg)
       (org-table-insert-hline))))
 
+(defmacro tmg/--wrap-org-roam-fn (fn)
+  (let ((fn-name (intern (concat "tmg/" (symbol-name fn)))))
+   `(defun ,fn-name ()
+      (interactive)
+      (let ((ivy-mode-before ivy-mode)))
+      (unwind-protect
+          (progn
+            (ivy-mode +1)
+            (,fn))
+        (ivy-mode ivy-mode-before)))))
+
+(tmg/--wrap-org-roam-fn org-roam-node-find)
+(tmg/--wrap-org-roam-fn org-roam-node-insert)
+
 (use-package org-roam
   :init
   (setq org-roam-v2-ack t)
