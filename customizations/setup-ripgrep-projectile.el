@@ -5,8 +5,8 @@
 (require 'rg)
 (require 'counsel)
 
-;; (define-key projectile-mode-map (kbd "C-c p p") 'helm-projectile-switch-project)
-(define-key projectile-mode-map (kbd "C-c p p") 'counsel-projectile-switch-project)
+(define-key projectile-mode-map (kbd "C-c p p") 'helm-projectile-switch-project)
+;; (define-key projectile-mode-map (kbd "C-c p p") 'counsel-projectile-switch-project)
 ;; (define-key projectile-mode-map (kbd "C-c p h") 'helm-projectile-find-file)
 (define-key projectile-mode-map (kbd "C-c p h") 'counsel-projectile-find-file)
 ;; to make counsel independent of serach term order
