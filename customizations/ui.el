@@ -36,6 +36,7 @@
 (set-frame-font "Iosevka TMG-12:style=Regular")
 ;; (set-frame-font "Source Code Pro-12:style=Regular")
 (set-fontset-font "fontset-standard" nil "Symbola:style=Regular")
+(set-fontset-font t '(#x1f000 . #x1faff) (font-spec :family "Noto Color Emoji"))
 
 ;; No cursor blinking, it's distracting
 (blink-cursor-mode 0)

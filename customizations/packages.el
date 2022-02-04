@@ -88,6 +88,7 @@
     switch-window
     terraform-doc
     terraform-mode
+    unicode-fonts
     use-package
     wgrep
     wgrep-ag
