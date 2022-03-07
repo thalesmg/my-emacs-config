@@ -51,3 +51,7 @@
       (insert checksum))
     (message "%s" checksum)
     checksum))
+
+;; prevent warnings buffer from popping up and nagging
+(when (boundp 'native-comp-async-report-warnings-errors)
+  (setq native-comp-async-report-warnings-errors nil))
