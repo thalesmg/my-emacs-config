@@ -60,6 +60,13 @@ of change will be 23:59 on that day"
       (call-interactively 'org-journal-new-entry nil [prefix time]))
     (customize-set-variable 'org-journal-dir old-org-journal-dir)))
 
+(defun tmg/org-journal-ensure-emqx-dir (prefix)
+  ""
+  (interactive)
+  (let* ((today (format-time-string "%Y%m%d"))
+         (dir (concat "~/dev/org-emqx/journal/" today)))
+    (make-directory dir)))
+
 (defun tmg/org-begin-src ()
   ""
   (interactive)
