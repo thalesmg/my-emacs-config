@@ -10,6 +10,7 @@
     ansible-doc
     auth-source-pass
     avy
+    bm ;; better bookmarks
     cider
     clojure-mode
     clojure-mode-extra-font-locking
