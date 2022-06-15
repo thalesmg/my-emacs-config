@@ -17,6 +17,10 @@
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
 
+;; global yasnippet mode
+(when (boundp 'yas-global-mode)
+  (yas-global-mode 1))
+
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
 
