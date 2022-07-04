@@ -25,6 +25,7 @@
     diff-hl
     direnv
     docker-tramp
+    dockerfile-mode
     edit-server
     elfeed
     elfeed-org
