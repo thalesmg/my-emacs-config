@@ -55,6 +55,7 @@
     ledger-mode
     lsp-haskell
     lsp-mode
+    lsp-pyright
     lsp-ui
     magit
     markdown-mode
