@@ -1,3 +1,3 @@
-;; (require 'elpy)
+(require 'lsp-pyright)
 
-;; (add-hook 'python-mode-hook 'elpy-mode)
+(add-hook 'python-mode-hook #'lsp)
