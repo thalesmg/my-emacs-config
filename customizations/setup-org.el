@@ -185,6 +185,7 @@ to update the dynamic block."
 (use-package org-roam
   :init
   (setq org-roam-v2-ack t)
+  (org-roam-db-autosync-mode)
   :custom
   (org-roam-directory "~/org/org-roam/")
   (org-roam-db-location "~/org/org-roam.db")
