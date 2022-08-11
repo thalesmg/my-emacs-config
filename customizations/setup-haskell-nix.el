@@ -22,19 +22,19 @@
 (setq lsp-prefer-flymake nil)
 
 (defun tmg/default-nix-wrapper (args)
-  (message "default directory: %s" default-directory)
-  (message "current sandbox: %s" (nix-current-sandbox))
-  (message "lsp-haskell--get-root: %s" (lsp-haskell--get-root))
-  (message "current buffer: %s" (current-buffer))
+  ;; (message "default directory: %s" default-directory)
+  ;; (message "current sandbox: %s" (nix-current-sandbox))
+  ;; (message "lsp-haskell--get-root: %s" (lsp-haskell--get-root))
+  ;; (message "current buffer: %s" (current-buffer))
   (if-let ((sandbox (nix-current-sandbox)))
       (progn
-        (message "siiiiiiiiiiiiiiiiiiiiiiiiiiiiimmmmmmmmmm")
+        ;; (message "siiiiiiiiiiiiiiiiiiiiiiiiiiiiimmmmmmmmmm")
         (append
          (append (list "nix-shell" "-I" "." "--command")
                  (list (mapconcat 'identity args " ")))
          (list sandbox)))
     (progn
-      (message "nããããããããããããããããããããããããããããããããããããããããããããooooooooooooooooo")
+      ;; (message "nããããããããããããããããããããããããããããããããããããããããããããooooooooooooooooo")
       args)))
 
 (defun tmg/haskell-lsp-hook ()
@@ -53,11 +53,11 @@
   (setq flycheck-command-wrapper-function #'tmg/default-nix-wrapper)
   (setq flycheck-executable-find
         (lambda (cmd)
-          (message "eu sou o flycheck-executable-find")
-          (message "default directory: %s" default-directory)
-          (message "current sandbox: %s" (nix-current-sandbox))
-          (message "lsp-haskell--get-root: %s" (lsp-haskell--get-root))
-          (message "current buffer: %s" (current-buffer))
+          ;; (message "eu sou o flycheck-executable-find")
+          ;; (message "default directory: %s" default-directory)
+          ;; (message "current sandbox: %s" (nix-current-sandbox))
+          ;; (message "lsp-haskell--get-root: %s" (lsp-haskell--get-root))
+          ;; (message "current buffer: %s" (current-buffer))
           (if-let ((sandbox (nix-current-sandbox)))
               (nix-executable-find sandbox cmd)
             cmd))))
