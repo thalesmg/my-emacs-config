@@ -14,8 +14,7 @@
 (setq ivy-re-builders-alist '((t . ivy--regex-ignore-order)))
 ;; (define-key projectile-mode-map (kbd "C-c p s r") 'projectile-ripgrep)
 
-(defun tmg-helm-do-rg
-    (&optional targets)
+(defun tmg-helm-do-rg (&optional targets)
   (interactive)
   (let ((basedir (projectile-project-root)))
    (helm-do-ag basedir targets)))
@@ -23,7 +22,7 @@
 
 
 (custom-set-variables
- '(helm-ag-base-command "rg --no-heading")
+ '(helm-ag-base-command "rg -. --no-heading")
  '(ripgrep-arguments (append ripgrep-arguments (list "--hidden"))))
 
 (rg-enable-default-bindings (kbd "M-s"))
