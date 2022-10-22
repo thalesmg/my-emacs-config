@@ -89,3 +89,6 @@
 (define-key winum-keymap (kbd "M-7") 'winum-select-window-7)
 (define-key winum-keymap (kbd "M-8") 'winum-select-window-8)
 (define-key winum-keymap (kbd "M-9") 'winum-select-window-9)
+
+;; recent bug in helm... without this, helm-mini doesn't work....
+(require 'helm-mode)
