@@ -41,6 +41,7 @@
     flycheck-rust
     forge
     git-timemachine
+    graphviz-dot-mode
     helm
     helm-ag
     helm-org-rifle
