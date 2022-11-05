@@ -126,5 +126,9 @@
               :repo "thalesmg/alloy-mode"
               :branch "master")
  )
+(quelpa
+ '(lean4-mode :fetcher github
+              :repo "leanprover/lean4-mode"
+              :branch "master"))
 
 (provide 'packages)
