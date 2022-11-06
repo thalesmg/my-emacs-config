@@ -35,6 +35,7 @@
 ;; (set-frame-font "Hasklig-8:style=Regular")
 (set-frame-font "Iosevka TMG-12:style=Regular")
 ;; (set-frame-font "Source Code Pro-12:style=Regular")
+(create-fontset-from-fontset-spec standard-fontset-spec)
 (set-fontset-font "fontset-standard" nil "Symbola:style=Regular")
 (set-fontset-font t '(#x1f000 . #x1faff) (font-spec :family "Noto Color Emoji"))
 
