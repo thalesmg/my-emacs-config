@@ -63,3 +63,12 @@
     (let ((curr-file-path (string-remove-prefix (projectile-project-root) buffer-file-name)))
       (shell-command (concat (projectile-project-root) "ext/bin/env mix format " curr-file-path))
       (revert-buffer nil t))))
+
+(define-key erlang-mode-map (kbd "C-x M-q")
+  (lambda ()
+    (interactive)
+    (basic-save-buffer)
+    (message projectile-project-root)
+    ;; fixme: only for emqx...
+    (shell-command (concat "make fmt"))
+    (revert-buffer nil t)))
