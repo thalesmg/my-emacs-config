@@ -70,5 +70,6 @@
     (basic-save-buffer)
     (message projectile-project-root)
     ;; fixme: only for emqx...
-    (shell-command (concat "make fmt"))
+    (let ((default-directory (projectile-project-root)))
+      (shell-command (concat "make fmt")))
     (revert-buffer nil t)))
