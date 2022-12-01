@@ -18,6 +18,7 @@
 ;; Run compile on save
 ;(setq alchemist-hooks-compile-on-save t)
 (require 'elixir-mode)
+(require 'erlang)
 (require 'projectile)
 (require 'alchemist)
 
