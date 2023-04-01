@@ -20,6 +20,7 @@
   ;; Further customization:
   (setq
    ;; mu4e-html2text-command "w3m -T text/html" ; how to handle html-formatted emails
+   mu4e-headers-date-format "%Y-%m-%d"
    mu4e-update-interval 300                  ; seconds between each mail retrieval
    mu4e-headers-auto-update t                ; avoid to type `g' to update
    mu4e-view-show-images t                   ; show images in the view buffer
