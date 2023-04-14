@@ -42,6 +42,7 @@
     forge
     git-timemachine
     graphviz-dot-mode
+    hcl-mode
     helm
     helm-ag
     helm-org-rifle
