@@ -110,3 +110,5 @@
 
 ;; hocon syntax highlight (closest thing so far)
 (add-to-list 'auto-mode-alist '("\\.hocon$" . hcl-mode))
+
+(setq-default fill-column 90)
