@@ -43,7 +43,7 @@
 (blink-cursor-mode 0)
 
 ;; Show line numbers
-(global-linum-mode)
+;; (global-linum-mode)
 
 ;; Vertical bars for indentation
 (require 'indent-guide)

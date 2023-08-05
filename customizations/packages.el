@@ -24,7 +24,7 @@
     dhall-mode
     diff-hl
     direnv
-    docker-tramp
+    ;; docker-tramp ;; use integrated package ‘tramp-container’
     dockerfile-mode
     edit-server
     elfeed
