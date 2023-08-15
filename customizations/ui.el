@@ -44,6 +44,7 @@
 
 ;; Show line numbers
 ;; (global-linum-mode)
+(global-display-line-numbers-mode)
 
 ;; Vertical bars for indentation
 (require 'indent-guide)
