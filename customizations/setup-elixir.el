@@ -1,6 +1,22 @@
-(add-hook 'elixir-mode-hook 'alchemist-mode)
+(require 'elixir-mode)
+(require 'erlang)
+(require 'projectile)
+(require 'alchemist)
+(require 'lsp)
+
 (add-hook 'elixir-mode-hook 'company-mode)
 (add-hook 'elixir-mode-hook 'smartparens-mode)
+(defun tmg/add-elixir-ls-to-path ()
+  (let ((dir "/home/thales/dev/elixir/elixir-ls/release"))
+    (if (file-directory-p dir)
+        (progn
+          (add-to-list 'exec-path dir)
+          (remove-hook 'elixir-mode-hook 'alchemist-mode)
+          (setq lsp-elixir-local-server-command (concat (file-name-as-directory dir) "language_server.sh"))
+          (add-hook 'elixir-mode-hook #'lsp))
+      (progn
+        (add-hook 'elixir-mode-hook 'alchemist-mode)))))
+(add-hook 'elixir-mode-hook 'tmg/add-elixir-ls-to-path)
 (eval-after-load 'elixir-mode-hook '(require 'smartparens-elixir))
 
 (require 'smartparens-config)
@@ -17,10 +33,6 @@
 ;(setq alchemist-hooks-test-on-save t)
 ;; Run compile on save
 ;(setq alchemist-hooks-compile-on-save t)
-(require 'elixir-mode)
-(require 'erlang)
-(require 'projectile)
-(require 'alchemist)
 
 (defvar xerpa/original-alchemist-goto-callback nil)
 
