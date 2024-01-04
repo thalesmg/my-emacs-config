@@ -3,7 +3,7 @@
     ;; org-alert
     ac-cider
     ace-window
-    alchemist
+    ;; alchemist
     ample-theme
     ample-zen-theme
     ansible
