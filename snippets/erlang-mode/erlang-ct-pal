@@ -1,0 +1,6 @@
+# -*- mode: snippet; -*-
+# name: erlang-ct-pal
+# key: <ctpal
+# --
+
+ct:pal("~p>>>>>>>>>\n  ~p",[{node(),?MODULE,?LINE},#{$1}]),
