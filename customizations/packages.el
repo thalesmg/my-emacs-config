@@ -95,6 +95,7 @@
     terraform-mode
     unicode-fonts
     use-package
+    vlf
     wgrep
     wgrep-ag
     wgrep-helm
