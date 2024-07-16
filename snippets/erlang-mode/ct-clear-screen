@@ -1,0 +1,6 @@
+# -*- mode: snippet; -*-
+# name: erlang-ct-clear-screen
+# key: <cthcls
+# --
+
+emqx_common_test_helpers:clear_screen(),

@@ -1,0 +1,13 @@
+# -*- mode: snippet; -*-
+# name: erlang-snabbkaffe-check-trace
+# key: <checktrace
+# --
+
+?check_trace(
+  begin
+    ct:fail(todo),
+    ok
+  end,
+  []
+),
+ok.
