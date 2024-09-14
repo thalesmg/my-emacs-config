@@ -1,3 +1,5 @@
+(require 'ert)
+
 (defun shell-cmd (cmd)
   "Returns the stdout output of a shell command or nil if the command returned
    an error"
