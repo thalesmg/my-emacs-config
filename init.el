@@ -86,7 +86,7 @@
  '(helm-ag-base-command "rg --no-heading")
  '(package-selected-packages
    (quote
-    (idris-mode paradox helm haskell-mode ansible edit-server ample-zen-theme avy company-anaconda anaconda-mode dockerfile-mode groovy-mode intero darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit magit indent-guide helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag ac-cider)))
+    (idris-mode paradox helm haskell-mode ansible edit-server ample-zen-theme avy company-anaconda anaconda-mode dockerfile-mode groovy-mode intero darktooth-theme restclient yaml-mode smex smartparens rainbow-delimiters paredit magit indent-guide helm-projectile git-timemachine flycheck-mix diff-hl clojure-mode-extra-font-locking alchemist ag)))
  '(paradox-github-token t)
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
