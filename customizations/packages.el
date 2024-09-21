@@ -30,6 +30,7 @@
     elfeed
     elfeed-org
     elfeed-web
+    elixir-mode
     elm-mode
     elpy
     erlang
