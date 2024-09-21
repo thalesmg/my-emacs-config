@@ -1,7 +1,7 @@
 (defvar my-packages
   '(
     ;; org-alert
-    ac-cider
+    ;;ac-cider
     ace-window
     ;; alchemist
     ample-theme
