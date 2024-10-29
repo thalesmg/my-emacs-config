@@ -3,6 +3,7 @@
     ;; org-alert
     ;;ac-cider
     ace-window
+    adoc-mode
     ;; alchemist
     ample-theme
     ample-zen-theme
