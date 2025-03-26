@@ -111,7 +111,9 @@ on_add_channel(_ConnResId, ConnState0, ActionResId, ActionConfig) ->
 ) ->
     {ok, connector_state()}.
 on_remove_channel(
-    _ConnResId, ConnState0 = #{?installed_channels := InstalledActions0}, ActionResId
+    _ConnResId,
+    ConnState0 = #{?installed_channels := InstalledActions0},
+    ActionResId
 ) when
     is_map_key(ActionResId, InstalledActions0)
 ->
@@ -139,7 +141,9 @@ on_get_channel_status(_ConnResId, _ActionResId, _ConnState) ->
 -spec on_query(connector_resource_id(), query(), connector_state()) ->
     {ok, _Result} | {error, _Reason}.
 on_query(
-    ConnResId, {ActionResId, #{} = Data}, #{?installed_channels := InstalledActions} = ConnState
+    ConnResId,
+    {ActionResId, #{} = Data},
+    #{?installed_channels := InstalledActions} = ConnState
 ) when
     is_map_key(ActionResId, InstalledActions)
 ->
