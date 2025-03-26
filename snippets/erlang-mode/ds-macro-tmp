@@ -1,0 +1,12 @@
+# -*- mode: snippet; -*-
+# name: ds-macro-tmp
+# key: <ifds
+# --
+
+-ifdef(STORE_STATE_IN_DS).
+todo
+%% ELSE ifdef(STORE_STATE_IN_DS).
+-else.
+$1
+%% END ifdef(STORE_STATE_IN_DS).
+-endif.
