@@ -48,13 +48,13 @@
 -type connector_config() :: #{
 }.
 -type connector_state() :: #{
-    ?installed_channels := #{channel_id() => action_state()}
+    ?installed_channels := #{channel_id() => channel_state()}
 }.
 
--type action_config() :: #{
+-type channel_config() :: #{
     parameters := #{}
 }.
--type action_state() :: #{}.
+-type channel_state() :: #{}.
 
 -type query() :: {_Tag :: channel_id(), _Data :: map()}.
 
