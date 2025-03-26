@@ -46,9 +46,10 @@
 -define(installed_channels, installed_channels).
 
 -type connector_config() :: #{
-    ?installed_channels => #{channel_id() => action_state()}
 }.
--type connector_state() :: #{}.
+-type connector_state() :: #{
+    ?installed_channels := #{channel_id() => action_state()}
+}.
 
 -type action_config() :: #{
     parameters := #{}
