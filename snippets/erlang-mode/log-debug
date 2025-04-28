@@ -1,0 +1,6 @@
+# -*- mode: snippet; -*-
+# name: log-debug
+# key: <log
+# --
+
+logger:warning(#{'$where' => {?MODULE, ?FUNCTION_NAME, ?LINE, self(), node()}$1}),
