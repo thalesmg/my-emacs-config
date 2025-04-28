@@ -26,7 +26,7 @@
 
 ;; Helm buffer list
 ;; (global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x b") 'counsel-buffer-or-recentf)
+(global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 
 ;; navegar entre buffers
 (global-set-key (kbd "C-,") 'previous-buffer)
