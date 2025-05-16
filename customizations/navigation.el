@@ -44,7 +44,7 @@
 
 ;; to navigate around dirs
 ;; https://github.com/emacs-helm/helm/issues/2623#issuecomment-1788494105
-;; (set-variable 'helm-move-to-line-cycle-in-source nil)
+(set-variable 'helm-move-to-line-cycle-in-source nil)
 ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
