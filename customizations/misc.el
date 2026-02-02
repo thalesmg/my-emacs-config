@@ -19,6 +19,7 @@
   ".*:\0? *"))
 (add-to-list 'tramp-default-proxies-alist '(nil "root" "/ssh:thalesmg@%h:"))
 (add-to-list 'tramp-default-proxies-alist '("localhost" nil nil))
+(add-to-list 'tramp-default-proxies-alist '("caribdis" nil nil))
 (add-to-list 'tramp-default-proxies-alist '("tufe" nil nil))
 (add-to-list 'tramp-default-proxies-alist '("biuru" nil nil))
 (add-to-list 'tramp-default-proxies-alist '("poiseh" nil nil))
