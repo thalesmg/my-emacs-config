@@ -11,4 +11,11 @@
 
 (add-hook 'magit-mode-hook 'diff-hl-mode)
 
+(add-hook 'magit-process-mode-hook
+          (lambda ()
+            (add-hook 'after-change-functions
+                      (lambda (beg end len)
+                        (ansi-color-apply-on-region beg end))
+                      nil t)))
+
 (provide 'setup-magit)
