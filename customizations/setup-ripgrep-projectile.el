@@ -1,7 +1,8 @@
 (require 'projectile-ripgrep)
 (require 'helm)
 (require 'helm-projectile)
-(require 'helm-ag)
+;; helm-ag is deprecated
+;; (require 'helm-ag)
 (require 'rg)
 (require 'counsel)
 
@@ -17,7 +18,8 @@
 (defun tmg-helm-do-rg (&optional targets)
   (interactive)
   (let ((basedir (projectile-project-root)))
-   (helm-do-ag basedir targets)))
+   (helm-do-grep-ag targets)))
+
 (define-key projectile-mode-map (kbd "C-c p s r") 'tmg-helm-do-rg)
 
 
