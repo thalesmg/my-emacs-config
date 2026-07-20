@@ -6,14 +6,9 @@
 (require 'rg)
 (require 'counsel)
 
-(define-key projectile-mode-map (kbd "C-c p p") 'helm-projectile-switch-project)
-;; (define-key projectile-mode-map (kbd "C-c p p") 'counsel-projectile-switch-project)
-;; (define-key projectile-mode-map (kbd "C-c p h") 'helm-projectile-find-file)
-(define-key projectile-mode-map (kbd "C-c p h") 'counsel-projectile-find-file)
 ;; to make counsel independent of serach term order
 ;; defualt is '((t . ivy--regex-plus))
 (setq ivy-re-builders-alist '((t . ivy--regex-ignore-order)))
-(global-set-key (kbd "C-c p s r") 'projectile-ripgrep)
 
 (defun tmg-helm-do-rg (&optional targets)
   (interactive)

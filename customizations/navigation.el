@@ -1,3 +1,9 @@
+(global-set-key (kbd "C-c p p") 'helm-projectile-switch-project)
+;; (define-key projectile-mode-map (kbd "C-c p p") 'counsel-projectile-switch-project)
+;; (define-key projectile-mode-map (kbd "C-c p h") 'helm-projectile-find-file)
+(global-set-key (kbd "C-c p h") 'counsel-projectile-find-file)
+(global-set-key (kbd "C-c p s r") 'projectile-ripgrep)
+
 
 ;; ido-mode allows you to more easily navigate choices. For example,
 ;; when you want to switch buffers, ido presents you with a list
