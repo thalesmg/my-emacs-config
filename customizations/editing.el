@@ -1,6 +1,6 @@
 ;; Customizations relating to editing a buffer.
 
-(require 'helm-swoop)
+;;(require 'helm-swoop)
 
 ;; Key binding to use "hippie expand" for text autocompletion
 ;; http://www.emacswiki.org/emacs/HippieExpand

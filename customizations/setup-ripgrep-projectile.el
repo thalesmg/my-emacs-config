@@ -13,7 +13,7 @@
 ;; to make counsel independent of serach term order
 ;; defualt is '((t . ivy--regex-plus))
 (setq ivy-re-builders-alist '((t . ivy--regex-ignore-order)))
-;; (define-key projectile-mode-map (kbd "C-c p s r") 'projectile-ripgrep)
+(global-set-key (kbd "C-c p s r") 'projectile-ripgrep)
 
 (defun tmg-helm-do-rg (&optional targets)
   (interactive)

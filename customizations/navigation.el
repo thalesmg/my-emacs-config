@@ -40,7 +40,7 @@
 (global-set-key (kbd "M-x") 'smex)
 
 ;; projectile everywhere!
-(projectile-global-mode)
+;;(projectile-global-mode)
 
 ;; to navigate around dirs
 ;; https://github.com/emacs-helm/helm/issues/2623#issuecomment-1788494105

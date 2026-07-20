@@ -48,8 +48,8 @@
     helm
     helm-org-rifle
     helm-projectile
-    helm-swoop
-    helm-unicode
+    ;; helm-swoop
+    ;; helm-unicode
     htmlize
     idris-mode
     indent-guide
