@@ -16,7 +16,7 @@
    (helm-do-grep-ag targets)))
 
 ;; (define-key projectile-mode-map (kbd "C-c p s r") 'tmg-helm-do-rg)
-(define-key projectile-mode-map (kbd "C-c p s r") 'counsel-projectile-rg)
+(global-set-key (kbd "C-c p s r") 'counsel-projectile-rg)
 
 (custom-set-variables
  '(helm-ag-base-command "rg -. --no-heading")
