@@ -19,7 +19,8 @@
     company-coq
     company-terraform
     counsel
-    counsel-projectile
+    ;; dead
+    ;; counsel-projectile
     dante
     darktooth-theme
     dhall-mode
