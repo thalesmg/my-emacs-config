@@ -102,3 +102,6 @@
 
 ;; recent bug in helm... without this, helm-mini doesn't work....
 (require 'helm-mode)
+
+(require 'projectile)
+(projectile-mode +1)
