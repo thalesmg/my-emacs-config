@@ -1,7 +1,7 @@
 (global-set-key (kbd "C-c p p") 'helm-projectile-switch-project)
 ;; (define-key projectile-mode-map (kbd "C-c p p") 'counsel-projectile-switch-project)
 ;; (define-key projectile-mode-map (kbd "C-c p h") 'helm-projectile-find-file)
-(global-set-key (kbd "C-c p h") 'counsel-projectile-find-file)
+(global-set-key (kbd "C-c p h") 'projectile-find-file)
 (global-set-key (kbd "C-c p s r") 'projectile-ripgrep)
 
 
@@ -105,3 +105,4 @@
 
 (require 'projectile)
 (projectile-mode +1)
+(ivy-mode +1)
