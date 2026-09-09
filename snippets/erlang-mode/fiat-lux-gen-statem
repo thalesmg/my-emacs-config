@@ -39,8 +39,8 @@ callback_mode() ->
     [handle_event_function, state_enter].
 
 init(_Opts) ->
-    State = #{},
-    {ok, initial, State}.
+    Data = #{},
+    {ok, initial, Data}.
 
 terminate(_Reason, _State, _Data) ->
     ok.
