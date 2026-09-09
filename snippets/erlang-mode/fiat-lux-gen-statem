@@ -1,0 +1,53 @@
+# -*- mode: snippet; -*-
+# name: erlang-fiat-lux-gen-statem
+# key: <fiatlux-gen_statem
+# --
+
+-module(a).
+
+-behaviour(gen_statem).
+
+%% API
+-export([
+    start_link/1
+]).
+
+%% \`gen_statem' API
+-export([
+    callback_mode/0,
+    init/1,
+    terminate/3,
+    handle_event/4
+]).
+
+%%------------------------------------------------------------------------------
+%% Type declarations
+%%------------------------------------------------------------------------------
+
+%%------------------------------------------------------------------------------
+%% API
+%%------------------------------------------------------------------------------
+
+start_link(Opts) ->
+    gen_server:start_link({local, ?MODULE}, ?MODULE, Opts, []).
+
+%%------------------------------------------------------------------------------
+%% \`gen_statem' API
+%%------------------------------------------------------------------------------
+
+callback_mode() ->
+    [handle_event_function, state_enter].
+
+init(_Opts) ->
+    State = #{},
+    {ok, initial, State}.
+
+terminate(_Reason, _State, _Data) ->
+    ok.
+
+handle_event(_EventType, _EventContent, _State, _Data) ->
+    keep_state_and_data.
+
+%%------------------------------------------------------------------------------
+%% Internal fns
+%%------------------------------------------------------------------------------
