@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
 (when (file-directory-p "/usr/share/emacs/site-lisp/mu4e")
 
   ;; https://f-santos.gitlab.io/2020-04-24-mu4e.html

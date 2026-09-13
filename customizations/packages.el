@@ -1,3 +1,6 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
+
 (defvar my-packages
   '(
     ;; org-alert

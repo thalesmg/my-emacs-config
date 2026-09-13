@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
 (custom-set-faces
  '(agda2-highlight-datatype-face ((t (:foreground "light blue"))))
  '(agda2-highlight-function-face ((t (:foreground "light blue"))))

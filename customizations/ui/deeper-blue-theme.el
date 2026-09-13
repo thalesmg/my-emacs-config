@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
 (setq custom--inhibit-theme-enable nil)
 
 (custom-theme-set-faces

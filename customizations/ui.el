@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
 ;; Color Themes
 ;; Read http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/
 ;; for a great explanation of emacs color themes.

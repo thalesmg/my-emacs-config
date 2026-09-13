@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
 (require 'nix-haskell-mode)
 (require 'lsp-mode)
 (require 'lsp-haskell)

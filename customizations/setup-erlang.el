@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
 (require 'smartparens)
 
 (add-hook 'erlang-mode-hook #'lsp)

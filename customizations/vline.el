@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; vline.el --- show vertical line (column highlighting) mode.
 
 ;; Copyright (C) 2002, 2008-2012 by Taiki SUGAWARA <buzz.taiki@gmail.com>

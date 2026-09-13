@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: nil; -*-
 ;;; col-highlight.el --- Highlight the current column.
 ;;
 ;; Filename: col-highlight.el

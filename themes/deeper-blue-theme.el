@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
 ;;; deeper-blue-theme.el --- Custom theme for faces
 
 ;; Copyright (C) 2011-2014 Free Software Foundation, Inc.

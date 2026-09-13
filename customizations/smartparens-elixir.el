@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
 ;;; smartparens-elixir.el --- Configuration for Elixir.
 
 ;; Copyright (C) 2017 Matúš Goljer

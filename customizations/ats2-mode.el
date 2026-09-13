@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
 ;;; ats2-mode.el --- Major mode to edit ATS2 source code
 
 ;; Copyright (C) 2007  Stefan Monnier

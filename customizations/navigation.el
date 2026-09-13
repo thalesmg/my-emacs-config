@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: nil; -*-
+;;; ^^^ https://emacs.stackexchange.com/a/85747/24054
 (global-set-key (kbd "C-c p p") 'helm-projectile-switch-project)
 ;; (define-key projectile-mode-map (kbd "C-c p p") 'counsel-projectile-switch-project)
 ;; (define-key projectile-mode-map (kbd "C-c p h") 'helm-projectile-find-file)
